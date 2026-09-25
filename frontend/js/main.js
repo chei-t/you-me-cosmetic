@@ -1,5 +1,7 @@
 /* ============================================================
    MAIN — Tawa Cosmetics bootstrap
+   Reduced motion is checked per-module (decentralized)
+   to avoid coupling every module to a shared helper.
    ============================================================ */
 import { initNavbar }   from './navbar.js';
 import { initHero }     from './hero.js';

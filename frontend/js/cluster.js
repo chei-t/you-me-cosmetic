@@ -1,68 +1,81 @@
 /* ============================================================
    CLUSTER — 6-image draggable composition
-   Transforms come from CSS custom properties on each card.
-   Adds:
-     - entrance stagger from center
-     - subtle idle float
-     - drag + inertia
-     - scroll-based rotation
+   Ownership:
+     .cluster-wrap          → GSAP: drag x/y, scroll rotation
+     .cluster-card          → CSS: composition (--x/--y/--s/--z)
+     .cluster-card__inner   → GSAP: entrance, idle float
+     img                    → CSS: size, radius
    ============================================================ */
 export function initCluster() {
   const wrap = document.querySelector('.cluster-wrap');
   if (!wrap || !window.gsap) return;
 
-  const cards = wrap.querySelectorAll('.cluster-card');
-  if (!cards.length) return;
+  const inners = wrap.querySelectorAll('.cluster-card__inner');
+  if (!inners.length) return;
 
-  // Scale factor for smaller screens (JS-side, complements CSS scale)
+  const reduceMotion = window.matchMedia(
+    '(prefers-reduced-motion: reduce)'
+  ).matches;
+
   const isMobile = window.matchMedia('(max-width: 809.98px)').matches;
-  const positionScale = isMobile ? 0.42 : 1;
 
-  /* -------- Set initial hidden state -------- */
-  cards.forEach((card) => {
-    const x = parseFloat(card.style.getPropertyValue('--x')) || 0;
-    const y = parseFloat(card.style.getPropertyValue('--y')) || 0;
-    const s = parseFloat(card.style.getPropertyValue('--s')) || 1;
-    const z = parseFloat(card.style.getPropertyValue('--z')) || 1;
+  /* ---------------------------------------------------------
+     Reduced motion path
+     --------------------------------------------------------- */
+  if (reduceMotion) {
+    gsap.set(inners, { opacity: 1, y: 0, scale: 1 });
+    return;
+  }
 
-    gsap.set(card, {
-      x: x * positionScale,
-      y: y * positionScale,
-      scale: s,
-      zIndex: z,
-      opacity: 0
-    });
-  });
-
-  /* -------- Register ScrollTrigger -------- */
   if (window.ScrollTrigger) gsap.registerPlugin(window.ScrollTrigger);
 
-  /* -------- Entrance from center outward -------- */
-  gsap.to(cards, {
-    opacity: 1,
-    duration: 0.9,
-    stagger: { each: 0.1, from: 'center' },
-    ease: 'power3.out',
-    scrollTrigger: window.ScrollTrigger ? {
-      trigger: wrap,
-      start: 'top 75%',
-      once: true
-    } : undefined
-  });
+  /* ---------------------------------------------------------
+     1. Entrance — inner only, stagger from center
+     --------------------------------------------------------- */
+  gsap.fromTo(
+    inners,
+    {
+      opacity: 0,
+      y: 35,
+      scale: 0.94
+    },
+    {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      duration: 0.9,
+      stagger: {
+        each: 0.08,
+        from: 'center'
+      },
+      ease: 'power3.out',
+      scrollTrigger: window.ScrollTrigger
+        ? {
+            trigger: wrap,
+            start: 'top 75%',
+            once: true
+          }
+        : undefined
+    }
+  );
 
-  /* -------- Idle float — each card drifts slightly -------- */
-  cards.forEach((card, i) => {
-    gsap.to(card, {
-      y: `+=${6 + i * 2}`,
+  /* ---------------------------------------------------------
+     2. Idle float — inner only
+     --------------------------------------------------------- */
+  inners.forEach((inner, i) => {
+    gsap.to(inner, {
+      y: 6 + i * 2,
       duration: 2.6 + i * 0.25,
       repeat: -1,
       yoyo: true,
       ease: 'sine.inOut',
-      delay: i * 0.15
+      delay: 1.5 + i * 0.15
     });
   });
 
-  /* -------- Scroll rotation -------- */
+  /* ---------------------------------------------------------
+     3. Scroll rotation on wrapper — no scale
+     --------------------------------------------------------- */
   if (window.ScrollTrigger) {
     gsap.to(wrap, {
       scrollTrigger: {
@@ -72,15 +85,16 @@ export function initCluster() {
         scrub: 1
       },
       rotate: 6,
-      scale: 1.03,
       ease: 'none'
     });
   }
 
-  /* -------- Drag with inertia -------- */
-  if (window.Draggable) {
-    window.gsap.registerPlugin(window.Draggable);
-    if (window.InertiaPlugin) window.gsap.registerPlugin(window.InertiaPlugin);
+  /* ---------------------------------------------------------
+     4. Drag — desktop only
+     --------------------------------------------------------- */
+  if (window.Draggable && !isMobile) {
+    gsap.registerPlugin(window.Draggable);
+    if (window.InertiaPlugin) gsap.registerPlugin(window.InertiaPlugin);
 
     window.Draggable.create(wrap, {
       type: 'x,y',

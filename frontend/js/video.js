@@ -8,20 +8,54 @@ export function initVideo() {
 
   if (!video || !playBtn) return;
 
+  /* ---------------------------------------------------------
+     Single UI sync
+     --------------------------------------------------------- */
+  const syncUI = () => {
+    const isPlaying = !video.paused;
+
+    section.classList.toggle('is-playing', isPlaying);
+
+    playBtn.setAttribute(
+      'aria-label',
+      isPlaying ? 'Pause video' : 'Play video'
+    );
+
+    playBtn.setAttribute(
+      'aria-pressed',
+      String(isPlaying)
+    );
+  };
+
+  /* ---------------------------------------------------------
+     Play / pause button
+     --------------------------------------------------------- */
   playBtn.addEventListener('click', () => {
     if (video.paused) {
-      video.play().catch(() => {});
-      section.classList.add('is-playing');
+      video.play().catch(() => {
+        syncUI();
+      });
     } else {
       video.pause();
-      section.classList.remove('is-playing');
     }
   });
 
-  // Click video itself to toggle
-  video.addEventListener('click', () => playBtn.click());
+  /* ---------------------------------------------------------
+     Click video itself to toggle
+     --------------------------------------------------------- */
+  video.addEventListener('click', () => {
+    playBtn.click();
+  });
 
-  // Sync state on pause/play events
-  video.addEventListener('play', () => section.classList.add('is-playing'));
-  video.addEventListener('pause', () => section.classList.remove('is-playing'));
+  /* ---------------------------------------------------------
+     Video state events
+     --------------------------------------------------------- */
+  video.addEventListener('play', syncUI);
+  video.addEventListener('pause', syncUI);
+  video.addEventListener('ended', syncUI);
+
+  /* ---------------------------------------------------------
+     Initial state
+     --------------------------------------------------------- */
+  syncUI();
 }

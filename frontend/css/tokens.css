@@ -74,4 +74,39 @@
   --t-fast:         0.25s;
   --t-med:          0.4s;
   --t-slow:         0.6s;
+
+/* -------- Measures -------- */
+--measure-sm: 420px;
+--measure-md: 620px;
+--measure-lg: 760px;
+
+/* -------- Animation durations -------- */
+--anim-fast:  0.3s;
+--anim-med:   0.6s;
+--anim-slow:  0.8s;
+--anim-hero:  1s;
+--anim-image: 1.4s;
+
+/* -------- Reveal offsets -------- */
+--reveal-y:        60px;
+--reveal-y-mobile: 30px;
+
+/* -------- Hover behaviors -------- */
+--hover-lift:  -6px;
+--hover-scale: 1.04;
+
+/* -------- Z-index scale -------- */
+--z-base:    1;
+--z-content: 10;
+--z-card:    20;
+--z-cluster: 30;
+--z-navbar:  100;
+--z-modal:   1000;
+
+/* -------- Navbar heights (critical for fixed nav) -------- */
+--nav-height:        90px;
+--nav-height-mobile: 68px;
+
+/* -------- Section container radius -------- */
+--radius-section: 24px;
 }

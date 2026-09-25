@@ -5,7 +5,7 @@
    right column (floating product card + hero image)
    ============================================================ */
 .hero {
-  padding: 80px 0 100px;
+  padding: calc(var(--nav-height) + 40px) 0 100px;
   overflow: hidden;
   position: relative;
 }
@@ -38,7 +38,7 @@
 /* -------- H1 word-by-word -------- */
 .hero__title-wrap {
   margin-bottom: 28px;
-  perspective: 900px;
+  
 }
 
 .hero__title {
@@ -200,7 +200,6 @@
   border-radius: var(--radius-card);
   overflow: hidden;
   position: relative;
-  flex: 1;
   min-height: 340px;
   will-change: transform;
 }

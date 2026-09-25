@@ -242,3 +242,65 @@
   }
   .footer__col h6 { margin-bottom: 16px; }
 }
+
+/* ============================================================
+   FIXED NAVBAR — hero offsets at every breakpoint
+   ============================================================ */
+
+/* Tablet */
+@media (max-width: 1199.98px) and (min-width: 810px) {
+  .hero {
+    padding-top: calc(var(--nav-height) + 24px);
+  }
+}
+
+/* Mobile */
+@media (max-width: 809.98px) {
+  .hero {
+    padding-top: calc(var(--nav-height-mobile) + 28px);
+  }
+}
+
+/* ============================================================
+   TOUCH DEVICES — disable hover effects
+   ============================================================ */
+@media (hover: none) {
+  .product-card:hover,
+  .service-card:hover,
+  .blog-card:hover {
+    transform: none;
+    box-shadow: none;
+  }
+
+  .product-card:hover .product-card__image img,
+  .service-card:hover .service-card__image img,
+  .blog-card:hover .blog-card__image img {
+    transform: none;
+  }
+
+  .navbar__menu a:hover::after {
+    width: 0;
+  }
+}
+
+/* ============================================================
+   SMALL PHONES — ≤420px
+   ============================================================ */
+@media (max-width: 420px) {
+  .hero__ctas {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .hero__ctas .btn {
+    width: 100%;
+  }
+
+  .hero__product-card {
+    grid-template-columns: 1fr;
+  }
+
+  .hero__product-image {
+    aspect-ratio: 4 / 3;
+  }
+}
