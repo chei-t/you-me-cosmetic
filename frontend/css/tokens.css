@@ -1,0 +1,77 @@
+/* ============================================================
+   TAWA COSMETICS — DESIGN  FRAMERS TOKENS
+   
+   ============================================================ */
+:root {
+
+  /* -------- Colors (exact Framer values) -------- */
+  --cream:          rgb(255, 255, 245);   /* page background */
+  --ivory:          #FDFCF7;               /* alt background */
+  --pale-green:     rgb(231, 233, 212);   /* card backgrounds */
+  --green-primary:  rgb(74, 91, 53);      /* headings, buttons, logo */
+  --green-deep:     #3A4728;               /* hover states */
+  --green-light:    rgb(207, 209, 180);   /* Contact Us button */
+  --green-soft:     #F7F7E4;               /* "New" badge bg */
+  --white:          #FFFFFF;
+  --black:          #000000;
+
+  /* Text */
+  --text-dark:      rgb(74, 91, 53);
+  --text-body:      rgb(74, 91, 53);
+  --text-muted:     rgba(74, 91, 53, 0.75);
+
+  /* Borders */
+  --border-light:   rgb(228, 231, 216);
+
+  /* -------- Typography (exact Framer fonts) -------- */
+  --font-serif:     'Instrument Serif', Georgia, 'Times New Roman', serif;
+  --font-sans:      'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+  /* Font sizes (exact from Framer) */
+  --fs-logo:        32px;
+  --fs-h1:          clamp(42px, 6.4vw, 92px);
+  --fs-h2:          clamp(32px, 4.5vw, 58px);
+  --fs-h4:          clamp(22px, 2.4vw, 34px);
+  --fs-h5:          clamp(18px, 1.8vw, 24px);
+  --fs-h6:          clamp(16px, 1.4vw, 20px);
+  --fs-body:        16px;
+  --fs-small:       14px;
+  --fs-tag:         14px;
+
+  /* Letter spacing (from Framer) */
+  --ls-logo:        0.04em;
+  --ls-tag:         0.02em;
+
+  /* Line heights */
+  --lh-tight:       1.02;
+  --lh-heading:     1.15;
+  --lh-body:        1.55;
+  --lh-logo:        1em;
+
+  /* -------- Spacing -------- */
+  --container:      1200px;
+  --gutter:         24px;
+  --section-pad:    96px;
+  --gap-sm:         12px;
+  --gap-md:         24px;
+  --gap-lg:         48px;
+
+  /* -------- Radii (exact from Framer) -------- */
+  --radius-pill:    999px;
+  --radius-card:    14px;
+  --radius-product: 14px;
+  --radius-sm:      8px;
+  --radius-input:   999px;
+
+  /* -------- Shadows -------- */
+  --shadow-card:    0 12px 40px rgba(74, 91, 53, 0.08);
+  --shadow-hover:   0 20px 60px rgba(74, 91, 53, 0.14);
+  --shadow-float:   0 24px 70px rgba(74, 91, 53, 0.16);
+
+  /* -------- Transitions -------- */
+  --ease-out:       cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out:    cubic-bezier(0.65, 0, 0.35, 1);
+  --t-fast:         0.25s;
+  --t-med:          0.4s;
+  --t-slow:         0.6s;
+}

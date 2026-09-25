@@ -1,0 +1,167 @@
+/* ============================================================
+   NAVBAR
+   Single responsive variant (matches Framer desktop layout)
+   ============================================================ */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: rgba(255, 255, 245, 0.92);
+  backdrop-filter: blur(12px) saturate(150%);
+  -webkit-backdrop-filter: blur(12px) saturate(150%);
+  border-bottom: 1px solid rgba(74, 91, 53, 0.06);
+  transition: padding var(--t-med) var(--ease-out),
+              backdrop-filter var(--t-med) var(--ease-out),
+              box-shadow var(--t-med) var(--ease-out);
+  padding: 20px 0;
+  will-change: padding, backdrop-filter;
+}
+
+.navbar.is-scrolled {
+  padding: 10px 0;
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  box-shadow: 0 4px 24px rgba(74, 91, 53, 0.06);
+}
+
+.navbar__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+}
+
+/* -------- Logo -------- */
+.navbar__logo {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+  opacity: 1;
+  line-height: 1;
+}
+.navbar__logo:hover { opacity: 1; }
+
+.navbar__logo-mark {
+  /* Small green dot/square accent above logo — matches Framer's tiny mark */
+  width: 10px;
+  height: 10px;
+  background: var(--green-primary);
+  display: block;
+  margin-bottom: 4px;
+}
+
+.navbar__logo-text {
+  font-family: var(--font-serif);
+  font-size: var(--fs-logo);
+  font-weight: 400;
+  letter-spacing: var(--ls-logo);
+  line-height: var(--lh-logo);
+  color: var(--green-primary);
+  text-transform: uppercase;
+}
+
+/* -------- Menu -------- */
+.navbar__menu {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  flex: 1;
+  justify-content: center;
+}
+
+.navbar__menu a {
+  font-family: var(--font-sans);
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  color: var(--green-primary);
+  opacity: 0.75;
+  position: relative;
+  padding: 4px 0;
+  transition: opacity var(--t-fast) var(--ease-out);
+}
+
+.navbar__menu a:hover {
+  opacity: 1;
+  color: var(--green-primary);
+}
+
+.navbar__menu a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 0;
+  height: 1px;
+  background: var(--green-primary);
+  transition: width var(--t-med) var(--ease-out);
+}
+.navbar__menu a:hover::after { width: 100%; }
+
+/* -------- Actions -------- */
+.navbar__actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* -------- Search pill -------- */
+.navbar__search {
+  background: var(--pale-green);
+  border-radius: var(--radius-pill);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: background var(--t-fast) var(--ease-out);
+}
+
+.navbar__search:hover {
+  background: var(--green-light);
+}
+
+.navbar__search-btn {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--green-primary);
+  border-radius: var(--radius-pill);
+}
+
+/* -------- Shop Now CTA -------- */
+.navbar__cta {
+  padding: 12px 26px;
+  font-size: 14px;
+}
+
+/* -------- Mobile toggle -------- */
+.navbar__toggle {
+  display: none;
+  width: 44px;
+  height: 44px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  border-radius: var(--radius-pill);
+}
+
+.navbar__toggle span {
+  display: block;
+  width: 22px;
+  height: 1.5px;
+  background: var(--green-primary);
+  transition: all var(--t-med) var(--ease-out);
+}
+
+.navbar__toggle.is-active span:nth-child(1) {
+  transform: translateY(6.5px) rotate(45deg);
+}
+.navbar__toggle.is-active span:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+.navbar__toggle.is-active span:nth-child(3) {
+  transform: translateY(-6.5px) rotate(-45deg);
+}

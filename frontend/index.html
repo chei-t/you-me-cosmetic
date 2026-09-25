@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Tawa Cosmetics — The Quiet Luxury Of Perfect Skin</title>
+<meta name="description" content="Tawa Cosmetics — clean skincare that transforms your skin into its most quietly radiant self." />
+
+<!-- Fonts (same as Framer) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<!-- GSAP stack -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/Draggable.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/InertiaPlugin.min.js"></script>
+
+<!-- CSS — files coming in next messages -->
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/global.css">
+<link rel="stylesheet" href="css/navbar.css">
+<link rel="stylesheet" href="css/hero.css">
+<link rel="stylesheet" href="css/cluster.css">
+<link rel="stylesheet" href="css/products.css">
+<link rel="stylesheet" href="css/services.css">
+<link rel="stylesheet" href="css/about.css">
+<link rel="stylesheet" href="css/testimonial.css">
+<link rel="stylesheet" href="css/blogs.css">
+<link rel="stylesheet" href="css/cta-footer.css">
+<link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+<!-- ============================================================
+     NAVBAR
+     ============================================================ -->
+<nav class="navbar" data-framer-appear-id="1sii8lg">
+  <div class="container navbar__inner">
+
+    <!-- Logo -->
+    <a href="./" class="navbar__logo" aria-label="Tawa Cosmetics home">
+      <span class="navbar__logo-mark"></span>
+      <span class="navbar__logo-text">Tawa</span>
+    </a>
+
+    <!-- Menu -->
+    <ul class="navbar__menu">
+      <li><a href="./">Home</a></li>
+      <li><a href="./about-us">About us</a></li>
+      <li><a href="./shop">Shop</a></li>
+      <li><a href="./#services">Services</a></li>
+      <li><a href="./blogs">Blogs</a></li>
+    </ul>
+
+    <!-- Actions -->
+    <div class="navbar__actions">
+      <div class="navbar__search">
+        <button aria-label="Search" class="navbar__search-btn">
+          <svg viewBox="0 0 256 256" width="20" height="20">
+            <path d="M232.49,215.51,185,168a92.12,92.12,0,1,0-17,17l47.53,47.54a12,12,0,0,0,17-17ZM44,112a68,68,0,1,1,68,68A68.07,68.07,0,0,1,44,112Z" fill="currentColor"/>
+          </svg>
+        </button>
+      </div>
+      <a href="./shop" class="btn btn-primary navbar__cta">Shop Now</a>
+      <button class="navbar__toggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+
+  </div>
+</nav>
+
+
+<!-- ============================================================
+     HERO SECTION
+     ============================================================ -->
+<header class="hero">
+  <div class="container hero__grid">
+
+    <!-- LEFT: text -->
+    <div class="hero__content">
+
+      <div class="hero__tag" data-framer-appear-id="1ok6kh9">
+        <p>— Your Glow Starts Here</p>
+      </div>
+
+      <div class="hero__title-wrap">
+        <h1 class="hero__title">
+          <span class="word">The</span>
+          <span class="word">Quiet</span>
+          <span class="word">Luxury</span>
+          <span class="word">Of</span>
+          <span class="word">Perfect</span>
+          <span class="word">Skin</span>
+        </h1>
+      </div>
+
+      <div class="hero__copy-wrap">
+        <p class="hero__copy">
+          Clean science-backed formulas that transform your skin into its most quietly radiant self.
+        </p>
+      </div>
+
+      <div class="hero__ctas" data-framer-appear-id="8lax10">
+        <a href="./shop" class="btn btn-primary">Shop Now</a>
+        <a href="./contact-us" class="btn btn-light">Contact Us</a>
+      </div>
+
+    </div>
+
+    <!-- RIGHT: featured product card + hero image -->
+    <div class="hero__visual">
+
+      <!-- Hero product card -->
+      <a href="./shop/glow-revival-serum" class="hero__product-card" data-framer-appear-id="1pd6n3t-0">
+        <div class="hero__product-image">
+          <span class="hero__product-badge">
+            <svg viewBox="0 0 24 24" width="14" height="14"><use href="#icon-star"/></svg>
+            <span>Best Seller</span>
+          </span>
+          <img
+            src="https://framerusercontent.com/images/Krb5dkxFHqS8N0Fe2wYr6crVYpg.png?width=1024&height=1024"
+            alt="Glow Revival Serum"
+            width="1024" height="1024"
+            loading="eager"
+          >
+        </div>
+        <div class="hero__product-info">
+          <h3>Glow Revival Serum</h3>
+          <p>A lightweight serum that deeply nourishes skin and restores your natural radiant glow daily.</p>
+          <div class="hero__product-price">
+            <span class="price-current">$49.00</span>
+            <span class="price-was">$74.00</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Hero image -->
+      <div class="hero__image" data-framer-appear-id="1umhu2a">
+        <img
+          src="https://framerusercontent.com/images/DR5l0DriK2khnOF60po5bnXc.png?width=1437&height=1024"
+          alt=""
+          width="1437" height="1024"
+          loading="eager"
+        >
+      </div>
+
+    </div>
+
+  </div>
+</header>
+
+
+<!-- ============================================================
+     INTRODUCTION — 6-image draggable cluster
+     ============================================================ -->
+<section class="introduction" id="introduction">
+  <div class="container">
+
+    <div class="introduction__head" data-reveal>
+      <div class="section-tag">
+        <p>— Introduction</p>
+      </div>
+      <h4 class="introduction__heading">
+        We believe great skin is not a privilege, it is a right. Pure ingredients, proven science, and daily rituals that make your skin genuinely rise beautifully.
+      </h4>
+    </div>
+
+    <!-- The draggable 6-image cluster -->
+    <div class="cluster-wrap" data-cluster>
+      <div class="cluster-stage">
+        <div class="cluster-card" style="--x:124.02px;  --y:35.44px;   --s:0.387; --z:6;">
+          <img src="https://framerusercontent.com/images/dBoAo8qqpOgmu78ImP6JbW74vs.png?width=300&height=300" alt="">
+        </div>
+        <div class="cluster-card" style="--x:-143.13px; --y:33.79px;   --s:0.400; --z:8;">
+          <img src="https://framerusercontent.com/images/WaqExVxUBwx4hFeCc1A8x3DoUo.png?width=300&height=300" alt="">
+        </div>
+        <div class="cluster-card" style="--x:267.15px;  --y:1.65px;    --s:0.662; --z:48;">
+          <img src="https://framerusercontent.com/images/aEAk56Ux3d45jwp1r1UCTF9qU.png?width=300&height=300" alt="">
+        </div>
+        <div class="cluster-card" style="--x:-267.15px; --y:-1.65px;   --s:0.688; --z:52;">
+          <img src="https://framerusercontent.com/images/OjDCB1CLtWONggvUo5wCoDLvKxc.png?width=300&height=300" alt="">
+        </div>
+        <div class="cluster-card" style="--x:143.13px;  --y:-33.79px;  --s:0.950; --z:92;">
+          <img src="https://framerusercontent.com/images/EuYL5lMcAuJ5qBnSbyHJUS5v8Wg.png?width=300&height=300" alt="">
+        </div>
+        <div class="cluster-card" style="--x:-124.02px; --y:-35.44px;  --s:0.963; --z:94;">
+          <img src="https://framerusercontent.com/images/FU73VNSsy2yVN2W2YLhvmc.png?width=300&height=300" alt="">
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ============================================================
+     NEW ARRIVALS — 6 product grid
+     ============================================================ -->
+<section class="new-arrivals" id="new-arrivals">
+  <div class="container">
+
+    <div class="section-head section-head--left">
+      <div class="section-tag">
+        <p>— New Arrivals</p>
+      </div>
+      <h2>Newest Additions To Your Glow Ritual</h2>
+    </div>
+
+    <div class="product-grid">
+
+      <a href="./shop/clarity-foam-cleanser" class="product-card">
+        <span class="product-card__badge">New</span>
+        <div class="product-card__image">
+          <img src="https://framerusercontent.com/images/mcLQFrE0pwBZ1gJRkdTzkwjSgU.png?width=1024&height=1190" alt="Clarity Foam Cleanser" loading="lazy">
+        </div>
+        <div class="product-card__body">
+          <h6>Clarity Foam Cleanser</h6>
+          <div class="product-card__prices">
+            <span class="price-current">$28.00</span>
+            <span class="price-was">$42.00</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="./shop/hydra-plump-sheet-mask" class="product-card">
+        <span class="product-card__badge">New</span>
+        <div class="product-card__image">
+          <img src="https://framerusercontent.com/images/dhsoyBWOursAWGrUaxHfJurG3x0.png?width=1024&height=1024" alt="Hydra Plump Sheet Mask" loading="lazy">
+        </div>
+        <div class="product-card__body">
+          <h6>Hydra Plump Sheet Mask</h6>
+          <div class="product-card__prices">
+            <span class="price-current">$14.00</span>
+            <span class="price-was">$22.00</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="./shop/petal-soft-lip-butter" class="product-card">
+        <span class="product-card__badge">New</span>
+        <div class="product-card__image">
+          <img src="https://framerusercontent.com/images/oKelAMPGAt9QCnqubpcYYJG19E.png?width=1024&height=1024" alt="Petal Soft Lip Butter" loading="lazy">
+        </div>
+        <div class="product-card__body">
+          <h6>Petal Soft Lip Butter</h6>
+          <div class="product-card__prices">
+            <span class="price-current">$18.00</span>
+            <span class="price-was">$28.00</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="./shop/rose-glow-toner" class="product-card">
+        <span class="product-card__badge">New</span>
+        <div class="product-card__image">
+          <img src="https://framerusercontent.com/images/nf3lGwtOaNot5xxlbPbU9f1wxw.png?width=1024&height=1024" alt="Rose Glow Toner" loading="lazy">
+        </div>
+        <div class="product-card__body">
+          <h6>Rose Glow Toner</h6>
+          <div class="product-card__prices">
+            <span class="price-current">$26.00</span>
+            <span class="price-was">$39.00</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="./shop/midnight-repair-oil" class="product-card">
+        <span class="product-card__badge">New</span>
+        <div class="product-card__image">
+          <img src="https://framerusercontent.com/images/X3GsqzeC7NH8bYEdDMEfR6ZMt6U.png?width=1024&height=1024" alt="Midnight Repair Oil" loading="lazy">
+        </div>
+        <div class="product-card__body">
+          <h6>Midnight Repair Oil</h6>
+          <div class="product-card__prices">
+            <span class="price-current">$62.00</span>
+            <span class="price-was">$89.00</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="./shop/bright-eye-cream" class="product-card">
+        <span class="product-card__badge">New</span>
+        <div class="product-card__image">
+          <img src="https://framerusercontent.com/images/7k539GcTgqEduMqpFPAcGBVYsw.png?width=1024&height=1024" alt="Bright Eye Cream" loading="lazy">
+        </div>
+        <div class="product-card__body">
+          <h6>Bright Eye Cream</h6>
+          <div class="product-card__prices">
+            <span class="price-current">$42.00</span>
+            <span class="price-was">$63.00</span>
+          </div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     SERVICES
+     ============================================================ -->
+<section class="services" id="services">
+  <div class="container">
+
+    <div class="services__head">
+      <div class="section-tag"><p>— Services</p></div>
+      <h2>Your Skin Deserves More Than Basic Care</h2>
+      <p>Premium treatments crafted with precision and care to give your skin exactly what it needs.</p>
+      <a href="./shop" class="btn btn-primary">Shop Now</a>
+    </div>
+
+    <div class="services__grid">
+
+      <article class="service-card">
+        <div class="service-card__image">
+          <img src="https://framerusercontent.com/images/jce1lX2GDa5PuE8w9wr9yUmwON4.jpeg?width=686&height=1200" alt="Glow Facial" loading="lazy">
+        </div>
+        <div class="service-card__body">
+          <h5>Glow Facial</h5>
+          <p>Deeply revitalizes your skin and brings back natural radiance.</p>
+        </div>
+      </article>
+
+      <article class="service-card">
+        <div class="service-card__image">
+          <img src="https://framerusercontent.com/images/kzIVsGQ6zxXW4i2QIaCjSOecGYk.png?width=949&height=1337" alt="Skin Analysis" loading="lazy">
+        </div>
+        <div class="service-card__body">
+          <h5>Skin Analysis</h5>
+          <p>Expert assessment that identifies your skin type and core concerns.</p>
+        </div>
+      </article>
+
+      <article class="service-card">
+        <div class="service-card__image">
+          <img src="https://framerusercontent.com/images/hdTI6SGcsKtH4GyX1MlfwP5eo.jpeg?width=686&height=1200" alt="Hydra Therapy" loading="lazy">
+        </div>
+        <div class="service-card__body">
+          <h5>Hydra Therapy</h5>
+          <p>Floods skin with deep moisture for lasting softness daily.</p>
+        </div>
+      </article>
+
+      <article class="service-card">
+        <div class="service-card__image">
+          <img src="https://framerusercontent.com/images/vvsRA8lAQQGWgAC6KPwAysFrbVs.jpeg?width=686&height=1200" alt="Radiance Peel" loading="lazy">
+        </div>
+        <div class="service-card__body">
+          <h5>Radiance Peel</h5>
+          <p>Removes dullness gently and reveals brighter smoother skin underneath.</p>
+        </div>
+      </article>
+
+      <article class="service-card">
+        <div class="service-card__image">
+          <img src="https://framerusercontent.com/images/eE15gIALdLJQetC2gEcONkp5w4.jpeg?width=800&height=1200" alt="Barrier Repair" loading="lazy">
+        </div>
+        <div class="service-card__body">
+          <h5>Barrier Repair</h5>
+          <p>Rebuilds and restores your skin barrier back to health.</p>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     MAIN VIDEO
+     ============================================================ -->
+<section class="main-video">
+  <div class="main-video__inner">
+    <video
+      src="https://framerusercontent.com/assets/BB8mcKj60E6q8FU5MtuvIS85bsM.mp4"
+      poster="https://framerusercontent.com/images/o3JA07tIs0VeS03vYLMk2hro.png?width=1200&height=800"
+      loop muted playsinline preload="none"
+    ></video>
+    <button class="main-video__play" aria-label="Play video">
+      <svg viewBox="0 0 24 24" width="28" height="28">
+        <path d="M8 5v14l11-7z" fill="currentColor"/>
+      </svg>
+    </button>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     ABOUT US — stats + image + features
+     ============================================================ -->
+<section class="about" id="about">
+  <div class="container about__grid">
+
+    <div class="about__text">
+      <div class="section-tag"><p>— About us</p></div>
+      <h2>A Brand With One Mission Glowing Skin</h2>
+      <p>Our entire brand exists for one reason helping every person achieve healthy, radiant, glowing skin through clean ingredients, honest formulas, and skincare that genuinely delivers real results.</p>
+
+      <div class="about__stats">
+        <div class="stat-card">
+          <div class="stat-card__num"><span data-count="35">0</span><span>K+</span></div>
+          <p>Happy Customers</p>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card__num"><span data-count="180">0</span><span>+</span></div>
+          <p>Premium Products</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="about__image">
+      <img src="https://framerusercontent.com/images/PzDd6qBpHB6uj2UPyzVLpe9Ldo.png?width=1254&height=1254" alt="" loading="lazy">
+    </div>
+
+  </div>
+
+  <div class="container">
+    <div class="about__features">
+      <div class="feature-card">
+        <span class="feature-card__icon"></span>
+        <h6>Purity</h6>
+        <p>Clean natural ingredients free from anything harmful always.</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-card__icon"></span>
+        <h6>Honesty</h6>
+        <p>Every ingredient on our label exists with full purpose.</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-card__icon"></span>
+        <h6>Gentleness</h6>
+        <p>Made for every skin type even sensitive.</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-card__icon"></span>
+        <h6>Results</h6>
+        <p>Visible changes you can feel from first use.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     BEST SELLERS — horizontal slideshow
+     ============================================================ -->
+<section class="best-sellers">
+  <div class="container">
+    <div class="section-head section-head--left">
+      <div class="section-tag"><p>— Best sellers</p></div>
+      <h2>Most Loved Most Repurchased Ever</h2>
+    </div>
+
+    <div class="carousel">
+      <div class="carousel__track">
+
+        <a href="./shop/glow-revival-serum" class="product-card carousel__item">
+          <span class="product-card__badge product-card__badge--green">Best Seller</span>
+          <div class="product-card__image">
+            <img src="https://framerusercontent.com/images/Krb5dkxFHqS8N0Fe2wYr6crVYpg.png?width=1024&height=1024" alt="Glow Revival Serum" loading="lazy">
+          </div>
+          <div class="product-card__body">
+            <h6>Glow Revival Serum</h6>
+            <div class="product-card__prices">
+              <span class="price-current">$49.00</span>
+              <span class="price-was">$74.00</span>
+            </div>
+          </div>
+        </a>
+
+        <a href="./shop/velvet-moisture-cream" class="product-card carousel__item">
+          <span class="product-card__badge product-card__badge--green">Best Seller</span>
+          <div class="product-card__image">
+            <img src="https://framerusercontent.com/images/86bgQVPl4uPo6IrCflnU4XLf0.png?width=1024&height=996" alt="Velvet Moisture Cream" loading="lazy">
+          </div>
+          <div class="product-card__body">
+            <h6>Velvet Moisture Cream</h6>
+            <div class="product-card__prices">
+              <span class="price-current">$38.00</span>
+              <span class="price-was">$58.00</span>
+            </div>
+          </div>
+        </a>
+
+        <a href="./shop/exfolia-glow-scrub" class="product-card carousel__item">
+          <span class="product-card__badge product-card__badge--green">Best Seller</span>
+          <div class="product-card__image">
+            <img src="https://framerusercontent.com/images/W6WDkgebaS9tGHxP5VQE2qAWE.png?width=1024&height=1024" alt="Exfolia Glow Scrub" loading="lazy">
+          </div>
+          <div class="product-card__body">
+            <h6>Exfolia Glow Scrub</h6>
+            <div class="product-card__prices">
+              <span class="price-current">$32.00</span>
+              <span class="price-was">$48.00</span>
+            </div>
+          </div>
+        </a>
+
+        <a href="./shop/detox-clay-mask" class="product-card carousel__item">
+          <span class="product-card__badge product-card__badge--green">Best Seller</span>
+          <div class="product-card__image">
+            <img src="https://framerusercontent.com/images/i3FSuxwYfskbEjHBCN3SW8kc6w.png?width=1024&height=1024" alt="Detox Clay Mask" loading="lazy">
+          </div>
+          <div class="product-card__body">
+            <h6>Detox Clay Mask</h6>
+            <div class="product-card__prices">
+              <span class="price-current">$34.00</span>
+              <span class="price-was">$52.00</span>
+            </div>
+          </div>
+        </a>
+
+        <a href="./shop/sunshield-spf-50-fluid" class="product-card carousel__item">
+          <span class="product-card__badge product-card__badge--green">Best Seller</span>
+          <div class="product-card__image">
+            <img src="https://framerusercontent.com/images/vYAtccEV6C6bfgiVWXPSaCs3RIg.png?width=1024&height=1024" alt="Sunshield SPF 50 Fluid" loading="lazy">
+          </div>
+          <div class="product-card__body">
+            <h6>Sunshield SPF 50 Fluid</h6>
+            <div class="product-card__prices">
+              <span class="price-current">$44.00</span>
+              <span class="price-was">$65.00</span>
+            </div>
+          </div>
+        </a>
+
+      </div>
+
+      <div class="carousel__controls">
+        <button class="carousel__btn" data-dir="prev" aria-label="Previous">
+          <svg viewBox="0 0 24 24" width="18" height="18"><path d="M15 6l-6 6 6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <button class="carousel__btn" data-dir="next" aria-label="Next">
+          <svg viewBox="0 0 24 24" width="18" height="18"><path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     TESTIMONIAL
+     ============================================================ -->
+<section class="testimonial">
+  <div class="container testimonial__grid">
+
+    <div class="testimonial__image">
+      <img src="https://framerusercontent.com/images/hSQRElmodqkYmuJMnHYkby428A.png?width=1254&height=1254" alt="" loading="lazy">
+    </div>
+
+    <div class="testimonial__content">
+      <div class="testimonial__stars">
+        <svg viewBox="0 0 24 24" width="20" height="20"><use href="#icon-star"/></svg>
+        <svg viewBox="0 0 24 24" width="20" height="20"><use href="#icon-star"/></svg>
+        <svg viewBox="0 0 24 24" width="20" height="20"><use href="#icon-star"/></svg>
+        <svg viewBox="0 0 24 24" width="20" height="20"><use href="#icon-star"/></svg>
+        <svg viewBox="0 0 24 24" width="20" height="20"><use href="#icon-star-outline"/></svg>
+      </div>
+      <h4>"Tawa completely transformed my skin in just four weeks. My skin has never felt this clean, hydrated, and genuinely alive before."</h4>
+      <div class="testimonial__author">
+        <p class="name">Sarah Mitchell</p>
+        <p class="role">Verified Customer</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ============================================================
+     BLOGS
+     ============================================================ -->
+<section class="blogs" id="blogs">
+  <div class="container">
+
+    <div class="section-head">
+      <div class="section-tag"><p>— Blogs</p></div>
+      <h2>Skin Stories Worth Your Precious Time</h2>
+    </div>
+
+    <div class="blogs__grid">
+
+      <!-- Featured (large) -->
+      <a href="./blogs/unlock-your-skin-s-natural-radiance-daily" class="blog-card blog-card--featured">
+        <div class="blog-card__image">
+          <img src="https://framerusercontent.com/images/Jlz84JfvszclZsJJ1uOUjDgA5o.png?width=1254&height=1254" alt="" loading="lazy">
+        </div>
+        <div class="blog-card__body">
+          <div class="blog-card__meta">
+            <span>Glow Essentials</span>
+            <span class="dot"></span>
+            <time datetime="2026-06-12">Jun 12, 2026</time>
+          </div>
+          <h3>Unlock Your Skin's Natural Radiance Daily</h3>
+          <p>Simple glow-boosting habits and ingredients that reveal your skin's most luminous and radiant self.</p>
+        </div>
+      </a>
+
+      <!-- Small cards -->
+      <div class="blogs__side">
+
+        <a href="./blogs/the-secret-to-lasting-skin-hydration" class="blog-card blog-card--small">
+          <div class="blog-card__image">
+            <img src="https://framerusercontent.com/images/CIYUXyR78VnaA1ZPnt6ftQZh1E.png?width=1254&height=1254" alt="" loading="lazy">
+          </div>
+          <div class="blog-card__body">
+            <div class="blog-card__meta">
+              <span>Skincare Secrets</span>
+              <span class="dot"></span>
+              <time datetime="2026-06-12">Jun 12, 2026</time>
+            </div>
+            <h6>The Secret to Lasting Skin Hydration</h6>
+            <p>Discover powerful hydration secrets that keep your skin plump, dewy, and glowing all day long.</p>
+          </div>
+        </a>
+
+        <a href="./blogs/beauty-basics-every-beginner-must-know" class="blog-card blog-card--small">
+          <div class="blog-card__image">
+            <img src="https://framerusercontent.com/images/DHXRu6p1uv5q7FkPikLALXUMJg.png?width=1254&height=1254" alt="" loading="lazy">
+          </div>
+          <div class="blog-card__body">
+            <div class="blog-card__meta">
+              <span>Beauty Basics</span>
+              <span class="dot"></span>
+              <time datetime="2026-06-12">Jun 12, 2026</time>
+            </div>
+            <h6>Beauty Basics Every Beginner Must Know</h6>
+            <p>Master the fundamental beauty and skincare basics that form the foundation of every great routine.</p>
+          </div>
+        </a>
+
+        <a href="./blogs/pure-skin-starts-with-what-you-avoid" class="blog-card blog-card--small">
+          <div class="blog-card__image">
+            <img src="https://framerusercontent.com/images/0UlWPtMMr2mTCEneoM6KQS1hkI.png?width=1254&height=1254" alt="" loading="lazy">
+          </div>
+          <div class="blog-card__body">
+            <div class="blog-card__meta">
+              <span>Pure Skin Tips</span>
+              <span class="dot"></span>
+              <time datetime="2026-06-12">Jun 12, 2026</time>
+            </div>
+            <h6>Pure Skin Starts With What You Avoid</h6>
+            <p>Discover the hidden habits and ingredients silently sabotaging your skin's clarity and natural purity.</p>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     CTA — email signup
+     ============================================================ -->
+<section class="cta-signup">
+  <div class="container cta-signup__grid">
+
+    <div class="cta-signup__content">
+      <div class="section-tag"><p>— Get started</p></div>
+      <h2>Your Glow Journey Starts Right Now</h2>
+      <p>Stop waiting for perfect skin. Everything your needs is already here waiting for you.</p>
+
+      <form class="cta-signup__form" onsubmit="event.preventDefault();this.reset();alert('Asante! Check your inbox 🌿');">
+        <input type="email" name="email" placeholder="name@email.com" required autocomplete="email">
+        <button type="submit">Subscribe</button>
+      </form>
+    </div>
+
+    <div class="cta-signup__image">
+      <img src="https://framerusercontent.com/images/Aq90auBsaL9g2dAECkQA52LNxM.png?width=1007&height=1536" alt="" loading="lazy">
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer class="footer">
+  <div class="container">
+
+    <div class="footer__top">
+
+      <div class="footer__brand">
+        <div class="footer__logo">Tawa</div>
+        <p>A premium skincare template crafted for modern beauty brands that value clean design and results.</p>
+        <a href="./shop" class="btn btn-primary">Shop Now</a>
+      </div>
+
+      <div class="footer__col">
+        <h6>Main links</h6>
+        <ul>
+          <li><a href="./">Home</a></li>
+          <li><a href="./about-us">About us</a></li>
+          <li><a href="./#services">Services</a></li>
+          <li><a href="./shop">Shop</a></li>
+          <li><a href="./blogs">Blogs</a></li>
+          <li><a href="./contact-us">Contact us</a></li>
+          <li><a href="./404">404</a></li>
+        </ul>
+      </div>
+
+      <div class="footer__col">
+        <h6>Follow us</h6>
+        <ul>
+          <li><a href="https://www.facebook.com/" target="_blank" rel="noopener">Facebook</a></li>
+          <li><a href="https://www.instagram.com/" target="_blank" rel="noopener">Instagram</a></li>
+          <li><a href="https://www.youtube.com/" target="_blank" rel="noopener">Youtube</a></li>
+          <li><a href="https://www.linkedin.com/feed/" target="_blank" rel="noopener">Linkedin</a></li>
+          <li><a href="https://x.com/home" target="_blank" rel="noopener">X-Twitter</a></li>
+        </ul>
+      </div>
+
+      <div class="footer__col">
+        <h6>Get in touch</h6>
+        <ul>
+          <li><a href="mailto:testing@gmail.com">testing@gmail.com</a></li>
+          <li><a href="tel:+001234567890">+001 234 567 890</a></li>
+          <li><a href="https://maps.app.goo.gl/k2HoudgFvMmxbrvA9" target="_blank" rel="noopener">London, UK</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="footer__bottom">
+      <p>© 2024 Tawa Cosmetics. All rights reserved.</p>
+    </div>
+
+  </div>
+</footer>
+
+
+<!-- ============================================================
+     INLINE SVG SPRITE (for star icons)
+     ============================================================ -->
+<svg style="display:none" aria-hidden="true">
+  <symbol id="icon-star" viewBox="0 0 24 24">
+    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" fill="currentColor"/>
+  </symbol>
+  <symbol id="icon-star-outline" viewBox="0 0 24 24">
+    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" fill="none" stroke="currentColor" stroke-width="1.5"/>
+  </symbol>
+</svg>
+
+<script type="module" src="js/main.js"></script>
+
+</body>
+</html>

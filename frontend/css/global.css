@@ -1,0 +1,230 @@
+/* ============================================================
+   GLOBAL RESET + BASE STYLES
+   ============================================================ */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-sans);
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  color: var(--text-body);
+  background: var(--cream);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+/* -------- Headings (Instrument Serif) -------- */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  color: var(--green-primary);
+  line-height: var(--lh-heading);
+  letter-spacing: -0.01em;
+}
+
+h1 { font-size: var(--fs-h1); line-height: var(--lh-tight); }
+h2 { font-size: var(--fs-h2); }
+h3 { font-size: var(--fs-h4); }
+h4 { font-size: var(--fs-h4); }
+h5 { font-size: var(--fs-h5); }
+h6 { font-size: var(--fs-h6); }
+
+/* -------- Text elements -------- */
+p {
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  color: var(--text-body);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color var(--t-fast) var(--ease-out),
+              opacity var(--t-fast) var(--ease-out);
+}
+
+a:hover { opacity: 0.85; }
+
+img,
+video {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+button {
+  font-family: inherit;
+  font-size: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+  color: inherit;
+}
+
+ul { list-style: none; }
+
+input,
+textarea,
+select {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+/* -------- Container -------- */
+.container {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+  width: 100%;
+}
+
+/* -------- Sections -------- */
+section {
+  padding: var(--section-pad) 0;
+  position: relative;
+}
+
+/* -------- Buttons -------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 15px 28px;
+  font-family: var(--font-sans);
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1em;
+  border-radius: var(--radius-pill);
+  transition: all var(--t-med) var(--ease-out);
+  cursor: pointer;
+  white-space: nowrap;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: none;
+}
+
+.btn-primary {
+  background: var(--green-primary);
+  color: var(--cream);
+}
+.btn-primary:hover {
+  background: var(--green-deep);
+  transform: translateY(-2px);
+  opacity: 1;
+}
+
+.btn-light {
+  background: var(--green-light);
+  color: var(--green-primary);
+}
+.btn-light:hover {
+  background: var(--green-primary);
+  color: var(--cream);
+  transform: translateY(-2px);
+  opacity: 1;
+}
+
+/* -------- Section tag (small "— Introduction" labels) -------- */
+.section-tag {
+  display: inline-block;
+  margin-bottom: 20px;
+}
+.section-tag p {
+  font-family: var(--font-sans);
+  font-size: var(--fs-tag);
+  font-weight: 500;
+  letter-spacing: var(--ls-tag);
+  color: var(--green-primary);
+  opacity: 0.75;
+}
+
+/* -------- Section heading helper -------- */
+.section-head {
+  text-align: center;
+  margin-bottom: 56px;
+}
+.section-head h2 {
+  margin-top: 8px;
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.section-head--left {
+  text-align: left;
+}
+.section-head--left h2 {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+/* -------- Price typography -------- */
+.price-current {
+  font-family: var(--font-sans);
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--green-primary);
+  letter-spacing: -0.02em;
+}
+.price-was {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--text-muted);
+  text-decoration: line-through;
+  opacity: 0.7;
+}
+
+/* -------- Reveal-on-scroll base state -------- */
+[data-reveal] {
+  will-change: transform, opacity;
+}
+
+/* -------- Selection -------- */
+::selection {
+  background: var(--green-primary);
+  color: var(--cream);
+}
+
+/* -------- Scrollbar (subtle, matches brand) -------- */
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: var(--cream); }
+::-webkit-scrollbar-thumb {
+  background: var(--green-light);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover { background: var(--green-primary); }
+
+/* -------- Focus visible (a11y) -------- */
+:focus-visible {
+  outline: 2px solid var(--green-primary);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* -------- Reduced motion -------- */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

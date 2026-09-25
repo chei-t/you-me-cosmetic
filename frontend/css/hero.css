@@ -1,0 +1,214 @@
+/* ============================================================
+   HERO
+   Layout matches Framer exactly:
+   left column (tag + H1 + copy + 2 CTAs)
+   right column (floating product card + hero image)
+   ============================================================ */
+.hero {
+  padding: 80px 0 100px;
+  overflow: hidden;
+  position: relative;
+}
+
+.hero__grid {
+  display: grid;
+  grid-template-columns: 1.05fr 1fr;
+  gap: 72px;
+  align-items: center;
+}
+
+/* -------- Left column -------- */
+.hero__content {
+  display: flex;
+  flex-direction: column;
+}
+
+.hero__tag {
+  margin-bottom: 24px;
+}
+.hero__tag p {
+  font-family: var(--font-sans);
+  font-size: var(--fs-tag);
+  font-weight: 500;
+  letter-spacing: var(--ls-tag);
+  color: var(--green-primary);
+  opacity: 0.75;
+}
+
+/* -------- H1 word-by-word -------- */
+.hero__title-wrap {
+  margin-bottom: 28px;
+  perspective: 900px;
+}
+
+.hero__title {
+  font-family: var(--font-serif);
+  font-size: var(--fs-h1);
+  font-weight: 400;
+  line-height: var(--lh-tight);
+  letter-spacing: -0.02em;
+  color: var(--green-primary);
+  /* Leave room for the words on multiple lines nicely */
+  max-width: 12ch;
+}
+
+.hero__title .word {
+  display: inline-block;
+  will-change: transform, opacity;
+  /* preserve natural space between words */
+  margin-right: 0.18em;
+}
+.hero__title .word:last-child {
+  margin-right: 0;
+}
+
+/* -------- Paragraph (chars split by JS) -------- */
+.hero__copy-wrap {
+  margin-bottom: 40px;
+}
+
+.hero__copy {
+  font-family: var(--font-sans);
+  font-size: 17px;
+  line-height: 1.55;
+  color: var(--green-primary);
+  opacity: 0.85;
+  max-width: 480px;
+}
+
+.hero__copy .char {
+  display: inline-block;
+  will-change: transform, opacity;
+}
+
+/* -------- CTAs -------- */
+.hero__ctas {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+/* -------- Right column -------- */
+.hero__visual {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  min-height: 620px;
+}
+
+/* -------- Hero product card -------- */
+.hero__product-card {
+  position: relative;
+  background: var(--cream);
+  border-radius: var(--radius-card);
+  padding: 16px;
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 20px;
+  align-items: stretch;
+  width: 100%;
+  box-shadow: var(--shadow-card);
+  transition: transform var(--t-med) var(--ease-out),
+              box-shadow var(--t-med) var(--ease-out);
+  opacity: 1;
+  z-index: 2;
+}
+
+.hero__product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-hover);
+  opacity: 1;
+}
+
+.hero__product-image {
+  position: relative;
+  background: var(--pale-green);
+  border-radius: var(--radius-sm);
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.hero__product-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: transform var(--t-med) var(--ease-out);
+}
+
+.hero__product-card:hover .hero__product-image img {
+  transform: scale(1.04);
+}
+
+.hero__product-badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: var(--cream);
+  color: var(--green-primary);
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  padding: 5px 10px;
+  border-radius: var(--radius-pill);
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  z-index: 2;
+}
+
+.hero__product-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 4px 0;
+}
+
+.hero__product-info h3 {
+  font-family: var(--font-serif);
+  font-size: 22px;
+  font-weight: 400;
+  color: var(--green-primary);
+  line-height: 1.15;
+  margin-bottom: 8px;
+}
+
+.hero__product-info p {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--green-primary);
+  opacity: 0.7;
+  margin-bottom: 16px;
+}
+
+.hero__product-price {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+
+/* -------- Hero image (large, editorial) -------- */
+.hero__image {
+  width: 100%;
+  aspect-ratio: 1437 / 1024;
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  position: relative;
+  flex: 1;
+  min-height: 340px;
+  will-change: transform;
+}
+
+.hero__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: left center;
+  border-radius: inherit;
+}
