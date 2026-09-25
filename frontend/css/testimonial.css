@@ -1,0 +1,70 @@
+/* ============================================================
+   TESTIMONIAL — image + large quote
+   ============================================================ */
+.testimonial {
+  padding: var(--section-pad) 0;
+}
+
+.testimonial__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 72px;
+  align-items: center;
+}
+
+.testimonial__image {
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  background: var(--pale-green);
+}
+
+.testimonial__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.testimonial__content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+}
+
+.testimonial__stars {
+  display: flex;
+  gap: 6px;
+  color: var(--green-primary);
+}
+
+.testimonial__content h4 {
+  font-family: var(--font-serif);
+  font-size: clamp(24px, 2.4vw, 34px);
+  font-weight: 400;
+  line-height: 1.35;
+  color: var(--green-primary);
+  letter-spacing: -0.01em;
+  max-width: 560px;
+}
+
+.testimonial__author {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.testimonial__author .name {
+  font-family: var(--font-sans);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--green-primary);
+}
+
+.testimonial__author .role {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  color: var(--green-primary);
+  opacity: 0.65;
+}

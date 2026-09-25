@@ -1,0 +1,244 @@
+/* ============================================================
+   RESPONSIVE
+   Exact Framer breakpoints:
+     Desktop : (min-width: 1200px)
+     Tablet  : (min-width: 810px) and (max-width: 1199.98px)
+     Mobile  : (max-width: 809.98px)
+   ============================================================ */
+
+/* ============================================================
+   TABLET — 810px to 1199.98px
+   ============================================================ */
+@media (max-width: 1199.98px) and (min-width: 810px) {
+
+  :root {
+    --section-pad: 72px;
+    --gutter: 24px;
+  }
+
+  /* Hero */
+  .hero { padding: 64px 0 80px; }
+  .hero__grid { gap: 40px; }
+  .hero__title { font-size: clamp(44px, 6.2vw, 68px); }
+  .hero__visual { min-height: 520px; }
+  .hero__product-card { grid-template-columns: 1fr 1.2fr; padding: 14px; }
+
+  /* Cluster */
+  .cluster-stage { transform: scale(0.72); transform-origin: center; }
+  .cluster-wrap { min-height: 420px; }
+
+  /* Products */
+  .product-grid { grid-template-columns: repeat(2, 1fr); }
+  .carousel__item { width: calc((100% - 18px) / 2); }
+
+  /* Services */
+  .services__grid { grid-template-columns: repeat(3, 1fr); }
+
+  /* About */
+  .about__grid { gap: 48px; }
+  .about__features { grid-template-columns: repeat(2, 1fr); gap: 32px; }
+
+  /* Testimonial */
+  .testimonial__grid { gap: 48px; }
+
+  /* Blogs */
+  .blogs__grid { grid-template-columns: 1fr; }
+  .blogs__side { flex-direction: row; flex-wrap: wrap; }
+  .blog-card--small { flex: 1 1 calc(50% - 10px); }
+
+  /* CTA */
+  .cta-signup__grid { padding: 56px; gap: 40px; }
+
+  /* Footer */
+  .footer__top {
+    grid-template-columns: 1.4fr 1fr 1fr;
+    gap: 32px;
+  }
+  .footer__brand { grid-column: 1 / -1; max-width: 100%; }
+
+  /* Navbar */
+  .navbar__menu { gap: 24px; }
+  .navbar__menu a { font-size: 14px; }
+}
+
+/* ============================================================
+   MOBILE — up to 809.98px
+   ============================================================ */
+@media (max-width: 809.98px) {
+
+  :root {
+    --gutter: 20px;
+    --section-pad: 56px;
+    --fs-h1: clamp(38px, 10vw, 54px);
+    --fs-h2: clamp(28px, 7.5vw, 42px);
+  }
+
+  section { padding: var(--section-pad) 0; }
+
+  /* -------- Navbar -------- */
+  .navbar { padding: 14px 0; }
+  .navbar.is-scrolled { padding: 8px 0; }
+
+  .navbar__menu {
+    position: fixed;
+    top: 68px;
+    left: 0;
+    right: 0;
+    background: var(--cream);
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 32px 24px;
+    gap: 24px;
+    border-bottom: 1px solid var(--border-light);
+    transform: translateY(-130%);
+    transition: transform var(--t-med) var(--ease-out);
+    box-shadow: 0 20px 40px rgba(74, 91, 53, 0.08);
+    z-index: 999;
+  }
+
+  .navbar__menu.is-open { transform: translateY(0); }
+
+  .navbar__menu a {
+    font-size: 20px;
+    opacity: 1;
+    padding: 6px 0;
+  }
+  .navbar__menu a::after { display: none; }
+
+  .navbar__toggle { display: flex; }
+
+  .navbar__search,
+  .navbar__cta { display: none; }
+
+  /* -------- Hero -------- */
+  .hero { padding: 40px 0 64px; }
+  .hero__grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .hero__title { max-width: 100%; }
+  .hero__copy { font-size: 16px; max-width: 100%; }
+
+  .hero__ctas { width: 100%; }
+  .hero__ctas .btn { flex: 1 1 auto; }
+
+  .hero__visual { min-height: auto; gap: 16px; }
+
+  .hero__product-card {
+    grid-template-columns: 1fr 1fr;
+    padding: 12px;
+    gap: 12px;
+  }
+  .hero__product-info h3 { font-size: 18px; }
+  .hero__product-info p { font-size: 12px; }
+
+  .hero__image { min-height: 260px; }
+
+  /* -------- Cluster -------- */
+  .cluster-wrap { min-height: 320px; }
+  .cluster-stage {
+    transform: scale(0.42);
+    transform-origin: center;
+  }
+
+  .introduction__head { margin-bottom: 48px; }
+  .introduction__heading { font-size: 22px; }
+
+  /* -------- Products -------- */
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+  .product-card { padding: 14px; }
+  .product-card__badge { top: 14px; left: 14px; font-size: 11px; padding: 4px 10px; }
+  .product-card__body h6 { font-size: 14px; }
+  .price-current { font-size: 15px; }
+  .price-was { font-size: 13px; }
+
+  .carousel__item { width: calc((100% - 18px) / 2); }
+  .carousel__controls { margin-top: 20px; }
+
+  /* -------- Services -------- */
+  .services__head { margin-bottom: 40px; }
+  .services__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+  }
+  .services__grid .service-card:last-child {
+    grid-column: 1 / -1;
+    max-width: 50%;
+    margin: 0 auto;
+  }
+  .service-card__image { aspect-ratio: 4 / 5; }
+  .service-card__body { padding: 16px; }
+  .service-card__body h5 { font-size: 18px; }
+
+  /* -------- About -------- */
+  .about__grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    margin-bottom: 48px;
+  }
+  .about__text h2 { max-width: 100%; }
+  .about__stats { gap: 28px; }
+  .stat-card__num { font-size: 36px; }
+
+  .about__features {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px;
+  }
+  .feature-card h6 { font-size: 18px; }
+
+  /* -------- Testimonial -------- */
+  .testimonial__grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .testimonial__content h4 { font-size: 22px; }
+
+  /* -------- Blogs -------- */
+  .blogs__grid { grid-template-columns: 1fr; gap: 20px; }
+  .blogs__side { gap: 16px; }
+
+  .blog-card--small {
+    flex-direction: column;
+  }
+  .blog-card--small .blog-card__image {
+    flex: none;
+    aspect-ratio: 16 / 10;
+    border-radius: 12px 12px 0 0;
+  }
+  .blog-card--small .blog-card__body { padding: 20px; }
+  .blog-card--featured .blog-card__body { padding: 24px; }
+  .blog-card__body h3 { font-size: 22px; }
+
+  /* -------- CTA signup -------- */
+  .cta-signup__grid {
+    grid-template-columns: 1fr;
+    padding: 40px 28px;
+    gap: 32px;
+    text-align: left;
+  }
+  .cta-signup__content h2 { max-width: 100%; }
+  .cta-signup__form {
+    flex-direction: column;
+    max-width: 100%;
+  }
+  .cta-signup__form button { width: 100%; }
+  .cta-signup__image { max-height: 320px; }
+
+  /* -------- Footer -------- */
+  .footer { padding: 56px 0 32px; }
+  .footer__top {
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    margin-bottom: 40px;
+  }
+  .footer__brand {
+    grid-column: 1 / -1;
+    max-width: 100%;
+  }
+  .footer__col h6 { margin-bottom: 16px; }
+}
