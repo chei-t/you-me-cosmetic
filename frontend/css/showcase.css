@@ -1,0 +1,68 @@
+/* ============================================================
+   PRODUCT SHOWCASE — full-width parallax section
+   Renders a single large product image that floats as you scroll.
+   ============================================================ */
+.showcase {
+  position: relative;
+  padding: 120px 0;
+  overflow: hidden;
+  background: var(--cream);
+}
+
+.showcase__inner {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+  position: relative;
+}
+
+.showcase__product {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1200 / 800;
+  border-radius: 20px;
+  overflow: hidden;
+  background: var(--pale-green);
+  will-change: transform;
+}
+
+.showcase__product img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  will-change: transform;
+}
+
+/* ============================================================
+   TABLET
+   ============================================================ */
+@media (max-width: 1199.98px) and (min-width: 810px) {
+  .showcase {
+    padding: 100px 0;
+  }
+}
+
+/* ============================================================
+   MOBILE
+   ============================================================ */
+@media (max-width: 809.98px) {
+  .showcase {
+    padding: 72px 0;
+  }
+
+  .showcase__product {
+    border-radius: 16px;
+  }
+}
+
+/* ============================================================
+   REDUCED MOTION
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+  .showcase__product,
+  .showcase__product img {
+    transform: none !important;
+  }
+}

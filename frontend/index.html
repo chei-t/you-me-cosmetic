@@ -6,7 +6,6 @@
     <title>Tawa Cosmetics — The Quiet Luxury Of Perfect Skin</title>
     <meta name="description" content="Tawa Cosmetics — clean skincare that transforms your skin into its most quietly radiant self." />
 
-    <!-- Open Graph -->
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Tawa Cosmetics — The Quiet Luxury Of Perfect Skin" />
     <meta property="og:description" content="Clean, botanical skincare made in Kenya." />
@@ -28,6 +27,7 @@
     <link rel="stylesheet" href="css/cluster.css" />
     <link rel="stylesheet" href="css/products.css" />
     <link rel="stylesheet" href="css/services.css" />
+    <link rel="stylesheet" href="css/showcase.css" />
     <link rel="stylesheet" href="css/video.css" />
     <link rel="stylesheet" href="css/about.css" />
     <link rel="stylesheet" href="css/testimonial.css" />
@@ -183,7 +183,7 @@
       <div class="container">
         <div class="section-head" data-reveal>
           <div class="section-tag"><p>— New Arrivals</p></div>
-          <h2>Newest Additions<br>To Your Glow Ritual</h2>
+          <h2 data-reveal="letters">Newest Additions<br>To Your Glow Ritual</h2>
         </div>
 
         <div class="product-grid">
@@ -338,6 +338,19 @@
       </div>
     </section>
 
+    <!-- PRODUCT SHOWCASE — parallax product floating between Services and Video -->
+    <section class="showcase">
+      <div class="showcase__inner">
+        <div class="showcase__product">
+          <img
+            src="https://framerusercontent.com/images/o3JA07tIs0VeS03vYLMk2hro.png?width=1200&height=800"
+            alt=""
+            loading="lazy"
+          />
+        </div>
+      </div>
+    </section>
+
     <!-- MAIN VIDEO -->
     <section class="main-video">
       <div class="main-video__inner">
@@ -375,7 +388,7 @@
             </div>
           </div>
         </div>
-        <div class="about__image" data-reveal>
+        <div class="about__image" data-reveal="scale">
           <img src="https://framerusercontent.com/images/PzDd6qBpHB6uj2UPyzVLpe9Ldo.png?width=1254&height=1254" alt="" loading="lazy" />
         </div>
       </div>
@@ -394,7 +407,7 @@
       <div class="container">
         <div class="section-head" data-reveal>
           <div class="section-tag"><p>— Best sellers</p></div>
-          <h2>Most Loved<br>Most Repurchased Ever</h2>
+          <h2 data-reveal="letters">Most Loved<br>Most Repurchased Ever</h2>
         </div>
 
         <div class="carousel">
@@ -440,7 +453,7 @@
     <!-- TESTIMONIAL -->
     <section class="testimonial">
       <div class="container testimonial__grid">
-        <div class="testimonial__image" data-reveal>
+        <div class="testimonial__image" data-reveal="scale">
           <img src="https://framerusercontent.com/images/hSQRElmodqkYmuJMnHYkby428A.png?width=1254&height=1254" alt="" loading="lazy" />
         </div>
         <div class="testimonial__content" data-reveal>
@@ -465,12 +478,14 @@
       <div class="container">
         <div class="section-head" data-reveal>
           <div class="section-tag"><p>— Blogs</p></div>
-          <h2>Skin Stories Worth Your Precious Time</h2>
+          <h2 data-reveal="letters">Skin Stories Worth Your Precious Time</h2>
         </div>
 
         <div class="blogs__grid">
           <a href="./blogs/unlock-your-skin-s-natural-radiance-daily" class="blog-card blog-card--featured">
-            <div class="blog-card__image"><img src="https://framerusercontent.com/images/Jlz84JfvszclZsJJ1uOUjDgA5o.png?width=1254&height=1254" alt="" loading="lazy" /></div>
+            <div class="blog-card__image" data-reveal="clip">
+              <img src="https://framerusercontent.com/images/Jlz84JfvszclZsJJ1uOUjDgA5o.png?width=1254&height=1254" alt="" loading="lazy" />
+            </div>
             <div class="blog-card__body">
               <div class="blog-card__meta"><span>Glow Essentials</span><span class="dot"></span><time datetime="2026-06-12">Jun 12, 2026</time></div>
               <h3>Unlock Your Skin's Natural Radiance Daily</h3>
@@ -520,7 +535,7 @@
             <button type="submit">Subscribe</button>
           </form>
         </div>
-        <div class="cta-signup__image" data-reveal>
+        <div class="cta-signup__image" data-reveal="scale">
           <img src="https://framerusercontent.com/images/Aq90auBsaL9g2dAECkQA52LNxM.png?width=1007&height=1536" alt="" loading="lazy" />
         </div>
       </div>

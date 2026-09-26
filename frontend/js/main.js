@@ -5,6 +5,7 @@ import { initNavbar }   from './navbar.js';
 import { initHero }     from './hero.js';
 import { initCluster }  from './cluster.js';
 import { initServices } from './services.js';
+import { initShowcase } from './showcase.js';
 import { initCounters } from './counters.js';
 import { initCarousel } from './carousel.js';
 import { initVideo }    from './video.js';
@@ -16,6 +17,7 @@ const boot = () => {
     initHero();
     initCluster();
     initServices();
+    initShowcase();
     initCounters();
     initCarousel();
     initVideo();

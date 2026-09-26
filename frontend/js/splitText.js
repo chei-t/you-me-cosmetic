@@ -1,7 +1,6 @@
 /* ============================================================
    SPLIT TEXT — native word/char splitter
-   Preserves inline markup (<em>, <strong>, <a>)
-   Does NOT wrap whitespace-only characters as .char spans
+   Preserves inline markup, whitespace handling for both modes.
    ============================================================ */
 export function splitText(el, type = 'words') {
   if (!el || el.dataset.split === 'true') return el;
@@ -30,10 +29,9 @@ export function splitText(el, type = 'words') {
         }
       });
     } else {
-      // Split into chars, but keep whitespace as plain text nodes
+      // Chars: keep whitespace as plain text nodes (won't animate)
       [...text].forEach((ch) => {
         if (/\s/.test(ch)) {
-          // Whitespace → plain text node (NOT a .char span)
           fragment.appendChild(document.createTextNode(ch));
         } else {
           const span = document.createElement('span');
