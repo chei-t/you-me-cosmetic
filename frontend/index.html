@@ -19,7 +19,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/Draggable.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/InertiaPlugin.min.js"></script>
 
     <link rel="stylesheet" href="css/tokens.css" />
     <link rel="stylesheet" href="css/global.css" />
@@ -42,15 +41,13 @@
           <span class="navbar__logo-mark"></span>
           <span class="navbar__logo-text">Tawa</span>
         </a>
-
-        <ul class="navbar__menu">
+        <ul class="navbar__menu" id="primary-navigation">
           <li><a href="./">Home</a></li>
           <li><a href="./about-us">About us</a></li>
           <li><a href="./shop">Shop</a></li>
           <li><a href="./#services">Services</a></li>
           <li><a href="./blogs">Blogs</a></li>
         </ul>
-
         <div class="navbar__actions">
           <div class="navbar__search">
             <button aria-label="Search" class="navbar__search-btn">
@@ -63,7 +60,12 @@
             </button>
           </div>
           <a href="./shop" class="btn btn-primary navbar__cta">Shop Now</a>
-          <button class="navbar__toggle" aria-label="Menu">
+          <button
+            class="navbar__toggle"
+            aria-label="Open menu"
+            aria-expanded="false"
+            aria-controls="primary-navigation"
+          >
             <span></span><span></span><span></span>
           </button>
         </div>
@@ -77,7 +79,6 @@
           <div class="hero__tag">
             <p>— Your Glow Starts Here</p>
           </div>
-
           <div class="hero__title-wrap">
             <h1 class="hero__title">
               <span class="word">The</span>
@@ -88,14 +89,12 @@
               <span class="word">Skin</span>
             </h1>
           </div>
-
           <div class="hero__copy-wrap">
             <p class="hero__copy">
               Clean science-backed formulas that transform your skin into its
               most quietly radiant self.
             </p>
           </div>
-
           <div class="hero__ctas">
             <a href="./shop" class="btn btn-primary">Shop Now</a>
             <a href="./contact-us" class="btn btn-light">Contact Us</a>
@@ -131,7 +130,6 @@
               </div>
             </div>
           </a>
-
           <div class="hero__image">
             <img
               src="https://framerusercontent.com/images/DR5l0DriK2khnOF60po5bnXc.png?width=1437&height=1024"
@@ -161,40 +159,7 @@
           <div class="cluster-stage">
             <div
               class="cluster-card"
-              style="--x: 124.02px; --y: 35.44px; --s: 0.387; --z: 6"
-            >
-              <div class="cluster-card__inner">
-                <img
-                  src="https://framerusercontent.com/images/dBoAo8qqpOgmu78ImP6JbW74vs.png?width=300&height=300"
-                  alt=""
-                />
-              </div>
-            </div>
-            <div
-              class="cluster-card"
-              style="--x: -143.13px; --y: 33.79px; --s: 0.4; --z: 8"
-            >
-              <div class="cluster-card__inner">
-                <img
-                  src="https://framerusercontent.com/images/WaqExVxUBwx4hFeCc1A8x3DoUo.png?width=300&height=300"
-                  alt=""
-                />
-              </div>
-            </div>
-            <div
-              class="cluster-card"
-              style="--x: 267.15px; --y: 1.65px; --s: 0.662; --z: 48"
-            >
-              <div class="cluster-card__inner">
-                <img
-                  src="https://framerusercontent.com/images/aEAk56Ux3d45jwp1r1UCTF9qU.png?width=300&height=300"
-                  alt=""
-                />
-              </div>
-            </div>
-            <div
-              class="cluster-card"
-              style="--x: -267.15px; --y: -1.65px; --s: 0.688; --z: 52"
+              style="--x: -130.677px; --y: 34.8974px; --s: 0.391459; --z: 6"
             >
               <div class="cluster-card__inner">
                 <img
@@ -205,7 +170,40 @@
             </div>
             <div
               class="cluster-card"
-              style="--x: 143.13px; --y: -33.79px; --s: 0.95; --z: 92"
+              style="--x: 136.681px; --y: 34.3788px; --s: 0.395672; --z: 7"
+            >
+              <div class="cluster-card__inner">
+                <img
+                  src="https://framerusercontent.com/images/WaqExVxUBwx4hFeCc1A8x3DoUo.png?width=300&height=300"
+                  alt=""
+                />
+              </div>
+            </div>
+            <div
+              class="cluster-card"
+              style="--x: -267.358px; --y: 0.518558px; --s: 0.670787; --z: 49"
+            >
+              <div class="cluster-card__inner">
+                <img
+                  src="https://framerusercontent.com/images/FU73VNSsy2yVN2W2YLhvmc.png?width=300&height=300"
+                  alt=""
+                />
+              </div>
+            </div>
+            <div
+              class="cluster-card"
+              style="--x: 267.358px; --y: -0.518558px; --s: 0.679213; --z: 51"
+            >
+              <div class="cluster-card__inner">
+                <img
+                  src="https://framerusercontent.com/images/dBoAo8qqpOgmu78ImP6JbW74vs.png?width=300&height=300"
+                  alt=""
+                />
+              </div>
+            </div>
+            <div
+              class="cluster-card"
+              style="--x: -136.681px; --y: -34.3788px; --s: 0.954328; --z: 93"
             >
               <div class="cluster-card__inner">
                 <img
@@ -216,11 +214,11 @@
             </div>
             <div
               class="cluster-card"
-              style="--x: -124.02px; --y: -35.44px; --s: 0.963; --z: 94"
+              style="--x: 130.677px; --y: -34.8974px; --s: 0.958541; --z: 94"
             >
               <div class="cluster-card__inner">
                 <img
-                  src="https://framerusercontent.com/images/FU73VNSsy2yVN2W2YLhvmc.png?width=300&height=300"
+                  src="https://framerusercontent.com/images/aEAk56Ux3d45jwp1r1UCTF9qU.png?width=300&height=300"
                   alt=""
                 />
               </div>
@@ -350,7 +348,7 @@
       </div>
     </section>
 
-    <!-- SERVICES -->
+    <!-- SERVICES — horizontal scroll -->
     <section class="services" id="services">
       <div class="container">
         <div class="services__head">
@@ -363,84 +361,88 @@
           <a href="./shop" class="btn btn-primary">Shop Now</a>
         </div>
 
-        <div class="services__grid">
-          <article class="service-card">
-            <div class="service-card__image">
-              <img
-                src="https://framerusercontent.com/images/jce1lX2GDa5PuE8w9wr9yUmwON4.jpeg?width=686&height=1200"
-                alt="Glow Facial"
-                loading="lazy"
-              />
-            </div>
-            <div class="service-card__body">
-              <h5>Glow Facial</h5>
-              <p>
-                Deeply revitalizes your skin and brings back natural radiance.
-              </p>
-            </div>
-          </article>
+        <div class="services__scroller" data-services-scroller>
+          <div class="services__track">
+            <article class="service-card">
+              <div class="service-card__image">
+                <img
+                  src="https://framerusercontent.com/images/jce1lX2GDa5PuE8w9wr9yUmwON4.jpeg?width=686&height=1200"
+                  alt="Glow Facial"
+                  loading="lazy"
+                />
+              </div>
+              <div class="service-card__body">
+                <h5>Glow Facial</h5>
+                <p>
+                  Deeply revitalizes your skin and brings back natural radiance.
+                </p>
+              </div>
+            </article>
 
-          <article class="service-card">
-            <div class="service-card__image">
-              <img
-                src="https://framerusercontent.com/images/kzIVsGQ6zxXW4i2QIaCjSOecGYk.png?width=949&height=1337"
-                alt="Skin Analysis"
-                loading="lazy"
-              />
-            </div>
-            <div class="service-card__body">
-              <h5>Skin Analysis</h5>
-              <p>
-                Expert assessment that identifies your skin type and core
-                concerns.
-              </p>
-            </div>
-          </article>
+            <article class="service-card">
+              <div class="service-card__image">
+                <img
+                  src="https://framerusercontent.com/images/kzIVsGQ6zxXW4i2QIaCjSOecGYk.png?width=949&height=1337"
+                  alt="Skin Analysis"
+                  loading="lazy"
+                />
+              </div>
+              <div class="service-card__body">
+                <h5>Skin Analysis</h5>
+                <p>
+                  Expert assessment that identifies your skin type and core
+                  concerns.
+                </p>
+              </div>
+            </article>
 
-          <article class="service-card">
-            <div class="service-card__image">
-              <img
-                src="https://framerusercontent.com/images/hdTI6SGcsKtH4GyX1MlfwP5eo.jpeg?width=686&height=1200"
-                alt="Hydra Therapy"
-                loading="lazy"
-              />
-            </div>
-            <div class="service-card__body">
-              <h5>Hydra Therapy</h5>
-              <p>Floods skin with deep moisture for lasting softness daily.</p>
-            </div>
-          </article>
+            <article class="service-card">
+              <div class="service-card__image">
+                <img
+                  src="https://framerusercontent.com/images/hdTI6SGcsKtH4GyX1MlfwP5eo.jpeg?width=686&height=1200"
+                  alt="Hydra Therapy"
+                  loading="lazy"
+                />
+              </div>
+              <div class="service-card__body">
+                <h5>Hydra Therapy</h5>
+                <p>
+                  Floods skin with deep moisture for lasting softness daily.
+                </p>
+              </div>
+            </article>
 
-          <article class="service-card">
-            <div class="service-card__image">
-              <img
-                src="https://framerusercontent.com/images/vvsRA8lAQQGWgAC6KPwAysFrbVs.jpeg?width=686&height=1200"
-                alt="Radiance Peel"
-                loading="lazy"
-              />
-            </div>
-            <div class="service-card__body">
-              <h5>Radiance Peel</h5>
-              <p>
-                Removes dullness gently and reveals brighter smoother skin
-                underneath.
-              </p>
-            </div>
-          </article>
+            <article class="service-card">
+              <div class="service-card__image">
+                <img
+                  src="https://framerusercontent.com/images/vvsRA8lAQQGWgAC6KPwAysFrbVs.jpeg?width=686&height=1200"
+                  alt="Radiance Peel"
+                  loading="lazy"
+                />
+              </div>
+              <div class="service-card__body">
+                <h5>Radiance Peel</h5>
+                <p>
+                  Removes dullness gently and reveals brighter smoother skin
+                  underneath.
+                </p>
+              </div>
+            </article>
 
-          <article class="service-card">
-            <div class="service-card__image">
-              <img
-                src="https://framerusercontent.com/images/eE15gIALdLJQetC2gEcONkp5w4.jpeg?width=800&height=1200"
-                alt="Barrier Repair"
-                loading="lazy"
-              />
-            </div>
-            <div class="service-card__body">
-              <h5>Barrier Repair</h5>
-              <p>Rebuilds and restores your skin barrier back to health.</p>
-            </div>
-          </article>
+            <article class="service-card">
+              <div class="service-card__image">
+                <img
+                  src="https://framerusercontent.com/images/eE15gIALdLJQetC2gEcONkp5w4.jpeg?width=800&height=1200"
+                  alt="Barrier Repair"
+                  loading="lazy"
+                />
+              </div>
+              <div class="service-card__body">
+                <h5>Barrier Repair</h5>
+                <p>Rebuilds and restores your skin barrier back to health.</p>
+              </div>
+            </article>
+          </div>
         </div>
       </div>
     </section>
@@ -456,8 +458,13 @@
           playsinline
           preload="none"
         ></video>
-        <button class="main-video__play" aria-label="Play video">
-          <svg viewBox="0 0 24 24" width="28" height="28">
+        <button
+          class="main-video__play"
+          type="button"
+          aria-label="Play video"
+          aria-pressed="false"
+        >
+          <svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true">
             <path d="M8 5v14l11-7z" fill="currentColor" />
           </svg>
         </button>
@@ -475,23 +482,21 @@
             healthy, radiant, glowing skin through clean ingredients, honest
             formulas, and skincare that genuinely delivers real results.
           </p>
-
           <div class="about__stats">
             <div class="stat-card">
               <div class="stat-card__num">
-                <span data-count="35">0</span><span>K+</span>
+                <span data-count="35">35</span><span>K+</span>
               </div>
               <p>Happy Customers</p>
             </div>
             <div class="stat-card">
               <div class="stat-card__num">
-                <span data-count="180">0</span><span>+</span>
+                <span data-count="180">180</span><span>+</span>
               </div>
               <p>Premium Products</p>
             </div>
           </div>
         </div>
-
         <div class="about__image">
           <img
             src="https://framerusercontent.com/images/PzDd6qBpHB6uj2UPyzVLpe9Ldo.png?width=1254&height=1254"
@@ -500,7 +505,6 @@
           />
         </div>
       </div>
-
       <div class="container">
         <div class="about__features">
           <div class="feature-card">
@@ -536,7 +540,7 @@
         </div>
 
         <div class="carousel">
-          <div class="carousel__track">
+          <div class="carousel__track" tabindex="0" aria-label="Best sellers">
             <a
               href="./shop/glow-revival-serum"
               class="product-card carousel__item"
@@ -649,7 +653,11 @@
             </a>
           </div>
           <div class="carousel__controls">
-            <button class="carousel__btn" data-dir="prev" aria-label="Previous">
+            <button
+              class="carousel__btn"
+              data-dir="prev"
+              aria-label="Previous products"
+            >
               <svg viewBox="0 0 24 24" width="18" height="18">
                 <path
                   d="M15 6l-6 6 6 6"
@@ -661,7 +669,11 @@
                 />
               </svg>
             </button>
-            <button class="carousel__btn" data-dir="next" aria-label="Next">
+            <button
+              class="carousel__btn"
+              data-dir="next"
+              aria-label="Next products"
+            >
               <svg viewBox="0 0 24 24" width="18" height="18">
                 <path
                   d="M9 6l6 6-6 6"
@@ -836,7 +848,6 @@
             Stop waiting for perfect skin. Everything you need is already here
             waiting for you.
           </p>
-
           <form
             class="cta-signup__form"
             onsubmit="
@@ -855,7 +866,6 @@
             <button type="submit">Subscribe</button>
           </form>
         </div>
-
         <div class="cta-signup__image">
           <img
             src="https://framerusercontent.com/images/Aq90auBsaL9g2dAECkQA52LNxM.png?width=1007&height=1536"
@@ -878,7 +888,6 @@
             </p>
             <a href="./shop" class="btn btn-primary">Shop Now</a>
           </div>
-
           <div class="footer__col">
             <h6>Main links</h6>
             <ul>
@@ -891,7 +900,6 @@
               <li><a href="./404">404</a></li>
             </ul>
           </div>
-
           <div class="footer__col">
             <h6>Follow us</h6>
             <ul>
@@ -934,7 +942,6 @@
               </li>
             </ul>
           </div>
-
           <div class="footer__col">
             <h6>Get in touch</h6>
             <ul>
@@ -951,7 +958,6 @@
             </ul>
           </div>
         </div>
-
         <div class="footer__bottom">
           <p>© 2024 Tawa Cosmetics. All rights reserved.</p>
         </div>

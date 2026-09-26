@@ -97,21 +97,21 @@ export function initNavbar() {
   onScroll();
 
   /* ---------------------------------------------------------
-     5. GSAP entrance
-     --------------------------------------------------------- */
-  const reduceMotion = window.matchMedia(
-    '(prefers-reduced-motion: reduce)'
-  ).matches;
+   5. GSAP entrance
+   --------------------------------------------------------- */
+const reduceMotion = window.matchMedia(
+  '(prefers-reduced-motion: reduce)'
+).matches;
 
-  if (window.gsap && !reduceMotion) {
-    gsap.from(navbar, {
-      y: -20,
-      opacity: 0,
-      duration: 0.7,
-      ease: 'power3.out',
-      clearProps: 'transform'
-    });
-  } else if (window.gsap && reduceMotion) {
-    gsap.set(navbar, { opacity: 1, y: 0 });
-  }
+if (window.gsap && !reduceMotion) {
+  gsap.from(navbar, {
+    y: -20,
+    opacity: 0,
+    duration: 0.7,
+    ease: 'power3.out',
+    clearProps: 'transform'
+  });
+} else if (window.gsap && reduceMotion) {
+  gsap.set(navbar, { opacity: 1, y: 0 });
+}
 }

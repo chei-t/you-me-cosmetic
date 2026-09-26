@@ -1,6 +1,5 @@
 /* ============================================================
    HERO — entrance timeline (GSAP)
-   Tawa recreation timing system
    Scope:
      - hero tag, H1 words, paragraph chars, CTAs,
        product card, hero image entrance
@@ -13,9 +12,6 @@ import { splitText } from './splitText.js';
 export function initHero() {
   if (!window.gsap) return;
 
-  /* ---------------------------------------------------------
-     Reduced motion
-     --------------------------------------------------------- */
   const reduceMotion = window.matchMedia(
     '(prefers-reduced-motion: reduce)'
   ).matches;
@@ -27,7 +23,7 @@ export function initHero() {
   if (heroCopy) splitText(heroCopy, 'chars');
 
   /* ---------------------------------------------------------
-     2. Reduced motion — reveal instantly
+     2. Reduced motion — reveal instantly, no parallax
      --------------------------------------------------------- */
   if (reduceMotion) {
     gsap.set(
@@ -52,14 +48,12 @@ export function initHero() {
     defaults: { ease: 'power3.out' }
   });
 
-  // 3a. Eyebrow
   tl.from('.hero__tag', {
     y: 20,
     opacity: 0,
     duration: 0.7
   }, 0.15);
 
-  // 3b. H1 words
   tl.from('.hero__title .word', {
     y: 70,
     opacity: 0,
@@ -67,7 +61,6 @@ export function initHero() {
     stagger: 0.08
   }, 0.30);
 
-  // 3c. Paragraph chars
   tl.from('.hero__copy .char', {
     y: 15,
     opacity: 0,
@@ -76,7 +69,6 @@ export function initHero() {
     ease: 'power2.out'
   }, 1.00);
 
-  // 3d. CTAs
   tl.from('.hero__ctas .btn', {
     y: 20,
     opacity: 0,
@@ -85,7 +77,6 @@ export function initHero() {
     stagger: 0.1
   }, 1.20);
 
-  // 3e. Product card
   tl.from('.hero__product-card', {
     y: 40,
     opacity: 0,
@@ -93,7 +84,6 @@ export function initHero() {
     duration: 1
   }, 1.40);
 
-  // 3f. Hero image
   tl.from('.hero__image', {
     scale: 1.08,
     opacity: 0,
@@ -103,34 +93,45 @@ export function initHero() {
 
   /* ---------------------------------------------------------
      4. Scroll parallax
+     IMPORTANT: start is 'top top' and end is 'bottom top'
+     so parallax only runs WHILE the hero is in view.
+     At page load, hero is at top → y = 0.
      --------------------------------------------------------- */
   if (window.ScrollTrigger) {
     gsap.registerPlugin(ScrollTrigger);
 
     const isMobile = window.matchMedia('(max-width: 809.98px)').matches;
 
-    gsap.to('.hero__image', {
-      scrollTrigger: {
-        trigger: '.hero',
-        start: 'top top',
-        end: 'bottom top',
-        scrub: 1
-      },
-      y: -80,
-      ease: 'none'
-    });
-
-    if (!isMobile) {
-      gsap.to('.hero__content', {
+    gsap.fromTo(
+      '.hero__image',
+      { y: 0 },
+      {
         scrollTrigger: {
           trigger: '.hero',
           start: 'top top',
           end: 'bottom top',
           scrub: 1
         },
-        y: -40,
+        y: -80,
         ease: 'none'
-      });
+      }
+    );
+
+    if (!isMobile) {
+      gsap.fromTo(
+        '.hero__content',
+        { y: 0 },
+        {
+          scrollTrigger: {
+            trigger: '.hero',
+            start: 'top top',
+            end: 'bottom top',
+            scrub: 1
+          },
+          y: -40,
+          ease: 'none'
+        }
+      );
     }
   }
 }
