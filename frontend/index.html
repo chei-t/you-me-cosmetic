@@ -74,6 +74,7 @@
               <span class="word">The</span>
               <span class="word">Quiet</span>
               <span class="word">Luxury</span>
+              <br>
               <span class="word">Of</span>
               <span class="word">Perfect</span>
               <span class="word">Skin</span>
@@ -270,20 +271,20 @@
       </div>
     </section>
 
-    <!-- SERVICES — sticky heading + horizontal card scroll -->
+    <!-- SERVICES — staggered card reveal -->
     <section class="services" id="services">
-      <div class="services__sticky">
-        <div class="container services__head">
+      <div class="container">
+
+        <div class="services__head">
           <div class="section-tag"><p>— Services</p></div>
-          <h2>Your Skin Deserves More Than Basic Care</h2>
+          <h2>Your Skin Deserves<br>More Than Basic Care</h2>
           <p>Premium treatments crafted with precision and care to give your skin exactly what it needs.</p>
           <a href="./shop" class="btn btn-primary">Shop Now</a>
         </div>
-      </div>
 
-      <div class="services__scroll">
-        <div class="services__track" data-services-track>
-          <article class="service-card">
+        <div class="services__grid">
+
+          <article class="service-card" data-reveal="left">
             <div class="service-card__image">
               <img src="https://framerusercontent.com/images/jce1lX2GDa5PuE8w9wr9yUmwON4.jpeg?width=686&height=1200" alt="Glow Facial" loading="lazy" />
             </div>
@@ -293,7 +294,7 @@
             </div>
           </article>
 
-          <article class="service-card">
+          <article class="service-card" data-reveal="right">
             <div class="service-card__image">
               <img src="https://framerusercontent.com/images/kzIVsGQ6zxXW4i2QIaCjSOecGYk.png?width=949&height=1337" alt="Skin Analysis" loading="lazy" />
             </div>
@@ -303,7 +304,7 @@
             </div>
           </article>
 
-          <article class="service-card">
+          <article class="service-card service-card--center" data-reveal="up">
             <div class="service-card__image">
               <img src="https://framerusercontent.com/images/hdTI6SGcsKtH4GyX1MlfwP5eo.jpeg?width=686&height=1200" alt="Hydra Therapy" loading="lazy" />
             </div>
@@ -313,7 +314,17 @@
             </div>
           </article>
 
-          <article class="service-card">
+          <article class="service-card" data-reveal="left">
+            <div class="service-card__image">
+              <img src="https://framerusercontent.com/images/eE15gIALdLJQetC2gEcONkp5w4.jpeg?width=800&height=1200" alt="Barrier Repair" loading="lazy" />
+            </div>
+            <div class="service-card__body">
+              <h5>Barrier Repair</h5>
+              <p>Rebuilds and restores your skin barrier back to health.</p>
+            </div>
+          </article>
+
+          <article class="service-card" data-reveal="right">
             <div class="service-card__image">
               <img src="https://framerusercontent.com/images/vvsRA8lAQQGWgAC6KPwAysFrbVs.jpeg?width=686&height=1200" alt="Radiance Peel" loading="lazy" />
             </div>
@@ -323,20 +334,12 @@
             </div>
           </article>
 
-          <article class="service-card">
-            <div class="service-card__image">
-              <img src="https://framerusercontent.com/images/eE15gIALdLJQetC2gEcONkp5w4.jpeg?width=800&height=1200" alt="Barrier Repair" loading="lazy" />
-            </div>
-            <div class="service-card__body">
-              <h5>Barrier Repair</h5>
-              <p>Rebuilds and restores your skin barrier back to health.</p>
-            </div>
-          </article>
         </div>
+
       </div>
     </section>
 
-    <!-- MAIN VIDEO — full-bleed -->
+    <!-- MAIN VIDEO -->
     <section class="main-video">
       <div class="main-video__inner">
         <video

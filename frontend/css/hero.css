@@ -1,6 +1,9 @@
 /* ============================================================
-   HERO — pale-green rounded card, portrait bleeds bottom-right
-   Matches Framer's structure.
+   HERO — matches Framer's pale-green card layout
+   - Whole hero is a pale-green rounded card
+   - Headline top-left, uppercase, 2 lines
+   - Product card bottom-left
+   - Portrait absolutely positioned right, bleeds to bottom
    ============================================================ */
 .hero {
   padding: calc(var(--nav-height) + 24px) 0 0;
@@ -10,22 +13,21 @@
   position: relative;
   background: var(--pale-green);
   border-radius: 20px;
-  padding: 140px 26px 26px;
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 90px;
+  padding: 60px;
+  display: block;
   overflow: hidden;
-  min-height: 720px;
+  min-height: 680px;
 }
 
 /* -------- Text column -------- */
 .hero__content {
   position: relative;
   z-index: 3;
-  max-width: 550px;
+  max-width: 520px;
   display: flex;
   flex-direction: column;
   gap: 16px;
+  padding-top: 20px;
 }
 
 .hero__tag p {
@@ -39,12 +41,13 @@
 
 .hero__title {
   font-family: var(--font-serif);
-  font-size: var(--fs-h1);
+  font-size: clamp(42px, 5vw, 60px);
   font-weight: 400;
-  line-height: var(--lh-tight);
-  letter-spacing: -0.02em;
+  line-height: 1.05;
+  letter-spacing: -0.01em;
   color: var(--green-primary);
-  max-width: 11ch;
+  text-transform: uppercase;
+  max-width: 14ch;
 }
 
 .hero__title .word {
@@ -56,11 +59,11 @@
 
 .hero__copy {
   font-family: var(--font-sans);
-  font-size: 17px;
+  font-size: 16px;
   line-height: 1.55;
   color: var(--green-primary);
   opacity: 0.8;
-  max-width: 46ch;
+  max-width: 42ch;
   margin-top: 8px;
 }
 
@@ -76,19 +79,19 @@
   margin-top: 24px;
 }
 
-/* -------- Product card -------- */
+/* -------- Product card — bottom-left -------- */
 .hero__product-card {
   position: absolute;
-  top: 100px;
-  right: 32px;
+  bottom: 32px;
+  left: 32px;
   z-index: 4;
-  width: 350px;
+  width: 380px;
   background: var(--cream);
   border-radius: 12px;
   padding: 10px;
   display: grid;
-  grid-template-columns: 1fr 1.3fr;
-  gap: 10px;
+  grid-template-columns: 110px 1fr;
+  gap: 14px;
   box-shadow: 0 20px 40px rgba(58, 71, 40, 0.15);
   transition: transform var(--t-med) var(--ease-out),
               box-shadow var(--t-med) var(--ease-out);
@@ -111,10 +114,9 @@
 }
 
 .hero__product-image img {
-  width: 100%;
-  height: 100%;
+  width: 70%;
+  height: 70%;
   object-fit: contain;
-  padding: 12px;
   transition: transform var(--t-med) var(--ease-out);
 }
 
@@ -192,13 +194,13 @@
   text-decoration: line-through;
 }
 
-/* -------- Portrait — absolute bottom-right -------- */
+/* -------- Portrait -------- */
 .hero__image {
   position: absolute;
   bottom: 0;
   right: 0;
-  width: 65%;
-  height: 655px;
+  width: 55%;
+  height: 620px;
   z-index: 2;
   pointer-events: none;
   will-change: transform, opacity;
@@ -208,7 +210,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: left center;
+  object-position: center top;
   display: block;
 }
 
@@ -217,23 +219,23 @@
    ============================================================ */
 @media (max-width: 1199.98px) and (min-width: 810px) {
   .hero__card {
-    padding: 110px 26px 26px;
-    min-height: 640px;
+    padding: 40px;
+    min-height: 600px;
   }
 
   .hero__image {
-    height: 590px;
-    width: 62%;
+    height: 550px;
+    width: 58%;
   }
 
   .hero__product-card {
-    width: 320px;
-    top: 90px;
-    right: 24px;
+    width: 340px;
+    bottom: 24px;
+    left: 24px;
   }
 
   .hero__title {
-    font-size: clamp(44px, 6.2vw, 68px);
+    font-size: clamp(38px, 5.2vw, 52px);
   }
 }
 
@@ -246,8 +248,7 @@
   }
 
   .hero__card {
-    padding: 40px 20px 0;
-    gap: 40px;
+    padding: 30px 20px 0;
     border-radius: 16px;
     min-height: auto;
   }
@@ -258,12 +259,12 @@
   }
 
   .hero__title {
-    font-size: clamp(38px, 10vw, 54px);
+    font-size: clamp(34px, 9vw, 46px);
     max-width: 100%;
   }
 
   .hero__copy {
-    font-size: 16px;
+    font-size: 15px;
     max-width: 100%;
   }
 
@@ -277,10 +278,12 @@
 
   .hero__product-card {
     position: relative;
-    top: auto;
-    right: auto;
+    bottom: auto;
+    left: auto;
     width: 100%;
+    margin-top: 30px;
     margin-bottom: 20px;
+    grid-template-columns: 90px 1fr;
   }
 
   .hero__image {
@@ -288,8 +291,12 @@
     bottom: auto;
     right: auto;
     width: calc(100% + 40px);
-    height: 400px;
+    height: 380px;
     margin: 0 -20px;
+  }
+
+  .hero__image img {
+    object-position: center;
   }
 }
 
@@ -306,6 +313,6 @@
   }
 
   .hero__image {
-    height: 340px;
+    height: 320px;
   }
 }

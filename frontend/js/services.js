@@ -1,42 +1,55 @@
 /* ============================================================
-   SERVICES — sticky heading + horizontal card scroll
-   Desktop: ScrollTrigger drives horizontal translation of the
-            card track while the heading stays sticky.
-   Mobile:  native swipe carousel (no JS).
-   Reduced motion: native swipe on all sizes.
+   SERVICES — staggered card reveal
+   Each card slides in from its direction (left / right / up)
+   as it enters the viewport. Uses IntersectionObserver.
    ============================================================ */
 export function initServices() {
-  const section = document.querySelector('.services');
-  const scroll = document.querySelector('.services__scroll');
-  const track = document.querySelector('.services__track');
+  const cards = document.querySelectorAll('.service-card[data-reveal]');
+  if (!cards.length) return;
 
-  if (!section || !scroll || !track) return;
-  if (!window.gsap || !window.ScrollTrigger) return;
-
+  /* ---------------------------------------------------------
+     Reduced motion: reveal instantly, no animation
+     --------------------------------------------------------- */
   const reduceMotion = window.matchMedia(
     '(prefers-reduced-motion: reduce)'
   ).matches;
-  const isMobile = window.matchMedia('(max-width: 809.98px)').matches;
 
-  if (reduceMotion || isMobile) return;
+  if (reduceMotion) {
+    cards.forEach((card) => card.classList.add('is-revealed'));
+    return;
+  }
 
-  gsap.registerPlugin(ScrollTrigger);
+  /* ---------------------------------------------------------
+     IntersectionObserver: reveal on viewport entry with stagger
+     --------------------------------------------------------- */
+  const observer = new IntersectionObserver(
+    (entries) => {
+      const visible = entries.filter((e) => e.isIntersecting);
+      if (!visible.length) return;
 
-  const getDistance = () =>
-    Math.max(0, track.scrollWidth - window.innerWidth);
+      // Sort by DOM order so stagger follows reading flow
+      visible.sort((a, b) =>
+        a.target.compareDocumentPosition(b.target) & Node.DOCUMENT_POSITION_FOLLOWING
+          ? -1
+          : 1
+      );
 
-  if (getDistance() <= 0) return;
+      visible.forEach((entry, index) => {
+        const card = entry.target;
+        const delay = index * 120; // 120ms stagger per visible card
 
-  gsap.to(track, {
-    x: () => -getDistance(),
-    ease: 'none',
-    scrollTrigger: {
-      trigger: section,
-      start: 'top top',
-      end: () => `+=${scroll.offsetHeight - window.innerHeight}`,
-      scrub: 1,
-      invalidateOnRefresh: true,
-      anticipatePin: 1
+        setTimeout(() => {
+          card.classList.add('is-revealed');
+        }, delay);
+
+        observer.unobserve(card);
+      });
+    },
+    {
+      threshold: 0.15,
+      rootMargin: '0px 0px -60px 0px'
     }
-  });
+  );
+
+  cards.forEach((card) => observer.observe(card));
 }

@@ -1,34 +1,30 @@
 /* ============================================================
-   SERVICES — sticky heading + horizontal card scroll
-   Matches Framer's mechanic.
+   SERVICES — staggered card reveal
+   Cards slide in from alternating sides as they enter viewport.
+   Layout: 2-column grid, middle card centered.
    ============================================================ */
 .services {
-  position: relative;
-  padding: 0;
-  overflow: visible;
+  padding: var(--section-pad) 0;
+  overflow: hidden;
 }
 
-/* -------- Sticky heading -------- */
-.services__sticky {
-  position: sticky;
-  top: 0;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 1;
-  pointer-events: none;
-}
-
+/* -------- Heading -------- */
 .services__head {
   text-align: center;
   max-width: 640px;
-  margin: 0 auto;
-  pointer-events: auto;
+  margin: 0 auto 72px;
 }
 
 .services__head h2 {
-  margin: 8px 0 20px;
+  font-family: var(--font-serif);
+  font-size: clamp(32px, 4.5vw, 56px);
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  color: var(--green-primary);
+  text-transform: uppercase;
+  text-align: center;
+  margin: 8px auto 20px;
 }
 
 .services__head p {
@@ -37,52 +33,55 @@
   line-height: 1.55;
   color: var(--green-primary);
   opacity: 0.75;
-  margin-bottom: 32px;
+  margin: 0 auto 32px;
+  max-width: 44ch;
 }
 
-/* -------- Scroll container -------- */
-.services__scroll {
-  position: relative;
-  margin-top: -100vh;
-  height: 200vh;
-  display: flex;
-  align-items: center;
-  z-index: 2;
-  pointer-events: none;
+/* ============================================================
+   GRID
+   Row 1: [Card 1]        [Card 2]
+   Row 2:        [Card 3]
+   Row 3: [Card 4]        [Card 5]
+   ============================================================ */
+.services__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  max-width: 900px;
+  margin: 0 auto;
 }
 
-.services__track {
-  display: flex;
-  align-items: center;
-  gap: 24px;
-  padding-left: calc((100vw - 1200px) / 2 + 24px);
-  padding-right: 24px;
-  will-change: transform;
-  pointer-events: auto;
+.service-card--center {
+  grid-column: 1 / -1;
+  justify-self: center;
+  max-width: 380px;
+  width: 100%;
 }
 
-/* -------- Card -------- */
+/* ============================================================
+   CARD
+   ============================================================ */
 .service-card {
-  flex: 0 0 auto;
-  width: 380px;
   background: var(--pale-green);
   border-radius: 16px;
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  box-shadow: 0 20px 60px rgba(74, 91, 53, 0.12);
-  transition: transform var(--t-med) var(--ease-out);
+  transition: transform var(--t-med) var(--ease-out),
+              box-shadow var(--t-med) var(--ease-out);
+  will-change: opacity, transform;
 }
 
 .service-card:hover {
-  transform: translateY(-4px);
+  transform: translateY(-6px);
+  box-shadow: 0 24px 60px rgba(74, 91, 53, 0.15);
 }
 
 .service-card__image {
   width: 100%;
-  aspect-ratio: 3 / 4.2;
+  aspect-ratio: 3 / 4;
   overflow: hidden;
-  background: var(--green-light);
+  background: var(--pale-green);
 }
 
 .service-card__image img {
@@ -90,6 +89,7 @@
   height: 100%;
   object-fit: cover;
   object-position: center;
+  display: block;
   transition: transform var(--t-slow) var(--ease-out);
 }
 
@@ -98,7 +98,7 @@
 }
 
 .service-card__body {
-  padding: 24px;
+  padding: 20px;
   display: flex;
   flex-direction: column;
   gap: 8px;
@@ -106,67 +106,80 @@
 
 .service-card__body h5 {
   font-family: var(--font-serif);
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 400;
   color: var(--green-primary);
   line-height: 1.2;
   letter-spacing: -0.02em;
+  text-transform: uppercase;
+  margin: 0;
 }
 
 .service-card__body p {
   font-family: var(--font-sans);
-  font-size: 14px;
+  font-size: 13px;
   line-height: 1.5;
   color: var(--green-primary);
   opacity: 0.7;
+  margin: 0;
+}
+
+/* ============================================================
+   REVEAL STATES
+   JS adds `.is-revealed` when the card enters viewport.
+   ============================================================ */
+.service-card[data-reveal] {
+  opacity: 0;
+  transition:
+    opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.3s ease;
+}
+
+.service-card[data-reveal="left"]  { transform: translateX(-80px); }
+.service-card[data-reveal="right"] { transform: translateX(80px); }
+.service-card[data-reveal="up"]    { transform: translateY(60px); }
+
+.service-card.is-revealed {
+  opacity: 1;
+  transform: translateX(0) translateY(0);
+}
+
+.service-card.is-revealed:hover {
+  transform: translateY(-6px);
+}
+
+/* ============================================================
+   TABLET
+   ============================================================ */
+@media (max-width: 1199.98px) and (min-width: 810px) {
+  .services__grid {
+    gap: 24px;
+    max-width: 800px;
+  }
+
+  .services__head h2 {
+    font-size: clamp(28px, 4vw, 44px);
+  }
 }
 
 /* ============================================================
    MOBILE
    ============================================================ */
 @media (max-width: 809.98px) {
-  .services {
-    padding: var(--section-pad) 0;
-  }
-
-  .services__sticky {
-    position: static;
-    height: auto;
-    padding: 0;
-    display: block;
-    pointer-events: auto;
-  }
-
   .services__head {
-    margin-bottom: 40px;
-    padding: 0 var(--gutter);
+    margin-bottom: 48px;
   }
 
-  .services__scroll {
-    margin-top: 0;
-    height: auto;
-    display: block;
-    pointer-events: auto;
+  .services__grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    max-width: 400px;
   }
 
-  .services__track {
-    overflow-x: auto;
-    overflow-y: hidden;
-    scroll-snap-type: x mandatory;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-    padding: 0 var(--gutter) 8px;
-    gap: 16px;
-  }
-
-  .services__track::-webkit-scrollbar {
-    display: none;
-  }
-
-  .service-card {
-    width: 280px;
-    scroll-snap-align: start;
-    box-shadow: none;
+  .service-card--center {
+    grid-column: auto;
+    max-width: 100%;
   }
 
   .service-card__image {
@@ -174,10 +187,29 @@
   }
 
   .service-card__body {
-    padding: 20px;
+    padding: 16px;
   }
 
   .service-card__body h5 {
-    font-size: 20px;
+    font-size: 17px;
+  }
+
+  .service-card__body p {
+    font-size: 12px;
+  }
+
+  .service-card[data-reveal="left"]  { transform: translateX(-40px); }
+  .service-card[data-reveal="right"] { transform: translateX(40px); }
+  .service-card[data-reveal="up"]    { transform: translateY(40px); }
+}
+
+/* ============================================================
+   REDUCED MOTION
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+  .service-card[data-reveal] {
+    opacity: 1;
+    transform: none;
+    transition: none;
   }
 }
