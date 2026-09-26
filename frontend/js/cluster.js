@@ -1,9 +1,12 @@
 /* ============================================================
    CLUSTER — 6-image draggable composition
-   Ownership:
-     .cluster-wrap          → GSAP: drag x/y, scroll rotation
-     .cluster-card          → CSS: composition (--x/--y/--s/--z)
-     .cluster-card__inner   → GSAP: entrance, idle float
+
+   Ownership (strict):
+     .cluster-card         → CSS composition (--x/--y/--s/--z)
+     .cluster-card__inner  → GSAP: entrance + idle float
+     .cluster-wrap         → GSAP: drag x/y (desktop only)
+
+   Scroll rotation removed to avoid conflicts with Draggable.
    ============================================================ */
 export function initCluster() {
   const wrap = document.querySelector('.cluster-wrap');
@@ -15,20 +18,22 @@ export function initCluster() {
   const reduceMotion = window.matchMedia(
     '(prefers-reduced-motion: reduce)'
   ).matches;
+
   const isMobile = window.matchMedia('(max-width: 809.98px)').matches;
 
   /* ---------------------------------------------------------
      Reduced motion path
      --------------------------------------------------------- */
   if (reduceMotion) {
-    gsap.set(inners, { opacity: 1, y: 0, scale: 1, x: 0, rotation: 0 });
+    gsap.set(inners, { opacity: 1, y: 0, scale: 1 });
     return;
   }
 
   if (window.ScrollTrigger) gsap.registerPlugin(window.ScrollTrigger);
 
   /* ---------------------------------------------------------
-     1. Initial hidden state
+     1. Set initial hidden state on INNER only
+     CSS owns the outer composition — do not touch it.
      --------------------------------------------------------- */
   gsap.set(inners, {
     y: 35,
@@ -37,7 +42,7 @@ export function initCluster() {
   });
 
   /* ---------------------------------------------------------
-     2. Entrance — stagger from center
+     2. Entrance — inner only, stagger from center
      --------------------------------------------------------- */
   gsap.to(inners, {
     y: 0,
@@ -59,68 +64,49 @@ export function initCluster() {
   });
 
   /* ---------------------------------------------------------
-     3. Idle float — 3 axes (x + y + rotation)
+     3. Idle float — inner only, after entrance settles
+     Uses `from` offset (0 → +N) so it doesn't fight entrance
      --------------------------------------------------------- */
   inners.forEach((inner, i) => {
-    // Horizontal drift
-    gsap.to(inner, {
-      x: 8 + i * 3,
-      duration: 3.2 + i * 0.3,
-      repeat: -1,
-      yoyo: true,
-      ease: 'sine.inOut',
-      delay: 1.5 + i * 0.15
-    });
-    // Vertical drift
-    gsap.to(inner, {
-      y: 10 + i * 4,
-      duration: 3.6 + i * 0.35,
-      repeat: -1,
-      yoyo: true,
-      ease: 'sine.inOut',
-      delay: 1.8 + i * 0.2
-    });
-    // Subtle rotation
-    gsap.to(inner, {
-      rotation: (i % 2 === 0 ? 1 : -1) * 2,
-      duration: 4.5 + i * 0.2,
-      repeat: -1,
-      yoyo: true,
-      ease: 'sine.inOut',
-      delay: 2 + i * 0.25
-    });
+  // Horizontal drift
+  gsap.to(inner, {
+    x: 8 + i * 3,
+    duration: 3.2 + i * 0.3,
+    repeat: -1,
+    yoyo: true,
+    ease: 'sine.inOut',
+    delay: 1.5 + i * 0.15
   });
+  // Vertical drift
+  gsap.to(inner, {
+    y: 10 + i * 4,
+    duration: 3.6 + i * 0.35,
+    repeat: -1,
+    yoyo: true,
+    ease: 'sine.inOut',
+    delay: 1.8 + i * 0.2
+  });
+  // Subtle rotation
+  gsap.to(inner, {
+    rotation: (i % 2 === 0 ? 1 : -1) * 2,
+    duration: 4.5 + i * 0.2,
+    repeat: -1,
+    yoyo: true,
+    ease: 'sine.inOut',
+    delay: 2 + i * 0.25
+  });
+});
 
   /* ---------------------------------------------------------
-     4. Scroll rotation on wrapper — -4° → +4°
-     --------------------------------------------------------- */
-  if (window.ScrollTrigger) {
-    gsap.fromTo(
-      wrap,
-      { rotate: -4 },
-      {
-        scrollTrigger: {
-          trigger: wrap,
-          start: 'top bottom',
-          end: 'bottom top',
-          scrub: 1
-        },
-        rotate: 4,
-        ease: 'none'
-      }
-    );
-  }
-
-  /* ---------------------------------------------------------
-     5. Drag — desktop only
+     4. Drag — desktop only
+     No scroll rotation on the wrap — it would fight Draggable
+     for the same `transform` property.
      --------------------------------------------------------- */
   if (window.Draggable && !isMobile) {
     gsap.registerPlugin(window.Draggable);
-    if (window.InertiaPlugin) gsap.registerPlugin(window.InertiaPlugin);
 
     window.Draggable.create(wrap, {
       type: 'x,y',
-      inertia: !!window.InertiaPlugin,
       bounds: {
         minX: -140,
         maxX: 140,
@@ -137,3 +123,4 @@ export function initCluster() {
     });
   }
 }
+

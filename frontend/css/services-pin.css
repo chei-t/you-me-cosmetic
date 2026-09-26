@@ -1,0 +1,102 @@
+/* ============================================================
+   SERVICES — pinned header, scrolling card track
+
+   Structure required in HTML:
+
+   <section class="services-pin">
+     <div class="services-pin__header">
+       ...tag, h2, copy, cta...
+     </div>
+     <div class="services-pin__track">
+       <div class="services-pin__row">
+         ...3 cards...
+       </div>
+       <div class="services-pin__row">
+         ...3 cards...
+       </div>
+     </div>
+   </section>
+
+   How it works:
+     - .services-pin__header is `position: sticky; top: 0`, so once it
+       hits the top of the viewport it locks in place.
+     - .services-pin__track is taller than the viewport and sits right
+       after the header in normal flow. Because it's so tall, the page
+       keeps scrolling through it while the header stays pinned above.
+     - Once the track's bottom edge reaches the header, sticky
+       positioning releases naturally and the header scrolls away with
+       the rest of the page — no JS needed to "end" the pin.
+
+   Tune --track-height per breakpoint to control how long the pin
+   lasts (bigger number = longer scroll before it releases).
+   ============================================================ */
+
+.services-pin {
+  --track-height: 1500px;
+  position: relative;
+}
+
+.services-pin__header {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  text-align: center;
+  z-index: 1;
+}
+
+.services-pin__track {
+  height: var(--track-height);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.services-pin__row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  padding: 0 24px;
+}
+
+/* Tablet: shorter track, 2-up rows still fine at this width */
+@media (max-width: 1199.98px) and (min-width: 810px) {
+  .services-pin { --track-height: 1200px; }
+}
+
+/* Mobile: the pin effect needs real scroll distance to feel right,
+   but tall empty tracks on small screens just feel like dead space.
+   Simplest fix: drop the pin entirely and let it flow normally. */
+@media (max-width: 809.98px) {
+  .services-pin__header {
+    position: static;
+    height: auto;
+    padding: 48px 20px 32px;
+  }
+  .services-pin__track {
+    height: auto;
+    gap: 32px;
+  }
+  .services-pin__row {
+    grid-template-columns: 1fr;
+    padding: 0 20px;
+  }
+}
+
+/* Reduced motion: sticky pinning itself isn't motion, but the whole
+   point of the effect is a scroll-driven visual — for anyone who's
+   opted out of motion, don't make them scroll further than the
+   content needs. Fall back to normal flow like mobile does. */
+@media (prefers-reduced-motion: reduce) {
+  .services-pin__header {
+    position: static;
+    height: auto;
+  }
+  .services-pin__track {
+    height: auto;
+  }
+}

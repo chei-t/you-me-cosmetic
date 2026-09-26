@@ -33,7 +33,7 @@ export function initHero() {
         '.hero__product-card',
         '.hero__image'
       ],
-      { opacity: 1, y: 0, scale: 1, clearProps: 'all' }
+      { opacity: 1, y: 0, scale: 1 }
     );
     return;
   }

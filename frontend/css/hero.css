@@ -1,5 +1,9 @@
 /* ============================================================
    HERO — matches Framer's pale-green card layout
+   - Whole hero is a pale-green rounded card
+   - Headline top-left, uppercase, 2 lines
+   - Product card bottom-left
+   - Portrait absolutely positioned right, bleeds to bottom
    ============================================================ */
 .hero {
   padding: calc(var(--nav-height) + 24px) 0 0;
@@ -190,7 +194,7 @@
   text-decoration: line-through;
 }
 
-/* -------- Portrait — 65% width, 655px tall -------- */
+/* -------- Portrait -------- */
 .hero__image {
   position: absolute;
   bottom: 0;
@@ -220,8 +224,8 @@
   }
 
   .hero__image {
-    height: 590px;
-    width: 62%;
+    height: 550px;
+    width: 58%;
   }
 
   .hero__product-card {

@@ -11,7 +11,7 @@ export function initCounters() {
   ).matches;
 
   const animate = (el) => {
-    const target = parseInt(el.dataset.count, 10);
+    const target = parseInt(el.dataset.count.replace(/[^\d-]/g, ''), 10);
 
     if (Number.isNaN(target)) return;
 
