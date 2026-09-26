@@ -34,7 +34,6 @@
   opacity: 1;
 }
 
-/* -------- Badge -------- */
 .product-card__badge {
   position: absolute;
   top: 20px;
@@ -55,7 +54,6 @@
   color: var(--cream);
 }
 
-/* -------- Image -------- */
 .product-card__image {
   position: relative;
   aspect-ratio: 1 / 1;
@@ -79,7 +77,6 @@
   transform: scale(1.05);
 }
 
-/* -------- Body -------- */
 .product-card__body {
   display: flex;
   flex-direction: column;
@@ -133,13 +130,12 @@
   scroll-snap-align: start;
 }
 
-/* -------- Carousel controls -------- */
 .carousel__controls {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 10px;
-  margin-top: 24px;
+  margin-top: 16px;
 }
 
 .carousel__btn {
@@ -156,4 +152,37 @@
 
 .carousel__btn:hover {
   background: var(--pale-green);
+}
+
+/* ============================================================
+   CAROUSEL DOTS — pagination indicators
+   ============================================================ */
+.carousel__dots {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-top: 20px;
+}
+
+.carousel__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--green-light);
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.carousel__dot:hover {
+  background: var(--green-primary);
+  opacity: 0.6;
+}
+
+.carousel__dot.is-active {
+  background: var(--green-primary);
+  width: 28px;
+  border-radius: 4px;
 }
