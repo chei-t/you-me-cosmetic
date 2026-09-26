@@ -87,6 +87,7 @@
   line-height: 1.2;
   color: var(--green-primary);
   letter-spacing: -0.01em;
+  text-transform: uppercase;
 }
 
 .blog-card__body h6 {

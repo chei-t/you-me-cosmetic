@@ -26,7 +26,7 @@ body {
   min-height: 100vh;
 }
 
-/* -------- Headings (Instrument Serif) -------- */
+/* -------- Headings -------- */
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-serif);
   font-weight: 400;
@@ -55,8 +55,6 @@ a {
   transition: color var(--t-fast) var(--ease-out),
               opacity var(--t-fast) var(--ease-out);
 }
-
-/* no global link hover — handled per-component */
 
 img,
 video {
@@ -143,7 +141,7 @@ section {
   opacity: 1;
 }
 
-/* -------- Section tag (small "— Introduction" labels) -------- */
+/* -------- Section tag -------- */
 .section-tag {
   display: inline-block;
   margin-bottom: 20px;
@@ -157,16 +155,18 @@ section {
   opacity: 0.75;
 }
 
-/* -------- Section heading helper -------- */
+/* -------- Section heading — UPPERCASE (Framer match) -------- */
 .section-head {
   text-align: center;
   margin-bottom: 56px;
 }
 .section-head h2 {
   margin-top: 8px;
-  max-width: 720px;
+  max-width: 14ch;
   margin-left: auto;
   margin-right: auto;
+  text-transform: uppercase;
+  text-align: center;
 }
 
 .section-head--left {
@@ -175,6 +175,7 @@ section {
 .section-head--left h2 {
   margin-left: 0;
   margin-right: 0;
+  text-align: left;
 }
 
 /* -------- Price typography -------- */
@@ -194,17 +195,13 @@ section {
   opacity: 0.7;
 }
 
-/* -------- Reveal-on-scroll base state -------- */
-
-/* GSAP handles reveal transform/opacity — no will-change here */
-
 /* -------- Selection -------- */
 ::selection {
   background: var(--green-primary);
   color: var(--cream);
 }
 
-/* -------- Scrollbar (subtle, matches brand) -------- */
+/* -------- Scrollbar -------- */
 ::-webkit-scrollbar { width: 10px; }
 ::-webkit-scrollbar-track { background: var(--cream); }
 ::-webkit-scrollbar-thumb {
@@ -213,7 +210,7 @@ section {
 }
 ::-webkit-scrollbar-thumb:hover { background: var(--green-primary); }
 
-/* -------- Focus visible (a11y) -------- */
+/* -------- Focus visible -------- */
 :focus-visible {
   outline: 2px solid var(--green-primary);
   outline-offset: 3px;

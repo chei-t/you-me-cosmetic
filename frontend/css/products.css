@@ -13,14 +13,14 @@
   gap: 28px;
 }
 
-/* -------- Product card (used in grid + carousel) -------- */
+/* -------- Product card -------- */
 .product-card {
   position: relative;
   display: flex;
   flex-direction: column;
   background: var(--pale-green);
   border-radius: var(--radius-card);
-  padding: 20px;
+  padding: 24px;
   transition: transform var(--t-med) var(--ease-out),
               box-shadow var(--t-med) var(--ease-out),
               opacity var(--t-med) var(--ease-out);
@@ -129,7 +129,7 @@
 
 .carousel__item {
   flex: 0 0 auto;
-  width: calc((100% - 36px) / 3); /* 3 visible on desktop */
+  width: calc((100% - 36px) / 3);
   scroll-snap-align: start;
 }
 

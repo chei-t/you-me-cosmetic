@@ -1,14 +1,5 @@
 /* ============================================================
    INTRODUCTION — 6-image draggable cluster
-   Exact transforms from Framer source:
-     Stage:     894.76px × 440px
-     Card:      260 × 260
-     Radius:    14px
-
-   Architecture:
-     .cluster-card         → CSS owns composition (--x/--y/--s/--z)
-     .cluster-card__inner  → GSAP owns motion (entrance, float, drag)
-   This prevents GSAP inline transforms from destroying the layout.
    ============================================================ */
 
 .introduction {
@@ -52,7 +43,7 @@
   cursor: grabbing;
 }
 
-/* -------- Stage (positions children absolutely) -------- */
+/* -------- Stage -------- */
 .cluster-stage {
   position: relative;
   width: 894.76px;
@@ -61,11 +52,7 @@
   isolation: isolate;
 }
 
-/* ============================================================
-   CARD — OUTER
-   CSS owns this transform. GSAP must NEVER write to it.
-   Positions the card using the composition variables from HTML.
-   ============================================================ */
+/* -------- Card (outer) — CSS owns composition -------- */
 .cluster-card {
   position: absolute;
   top: 50%;
@@ -74,19 +61,13 @@
   height: 260px;
   z-index: var(--z, 1);
   pointer-events: none;
-  /* Composition transform — centered + offset + scaled */
   transform:
     translate(-50%, -50%)
     translate(var(--x, 0), var(--y, 0))
     scale(var(--s, 1));
-  /* No will-change here — the outer element never animates */
 }
 
-/* ============================================================
-   CARD — INNER
-   GSAP owns this transform. Free to write x/y/scale/opacity
-   without touching the outer composition.
-   ============================================================ */
+/* -------- Card (inner) — GSAP owns motion -------- */
 .cluster-card__inner {
   width: 100%;
   height: 100%;
@@ -94,7 +75,6 @@
   align-items: center;
   justify-content: center;
   will-change: transform, opacity;
-  /* GSAP will populate transform: translate(x,y) scale(s) rotate(r) */
 }
 
 .cluster-card__inner img {
@@ -110,14 +90,21 @@
 }
 
 /* ============================================================
-   MOBILE — cluster
-   Temporary visual scale only.
-   Proper mobile layout will be implemented in cluster.js.
-   TODO: [MOBILE-CLUSTER] replace with stacked/swipe layout
+   DESKTOP SCALE — make the cluster larger (matches Framer)
+   ============================================================ */
+@media (min-width: 810px) {
+  .cluster-stage {
+    transform: scale(1.35);
+    transform-origin: center;
+  }
 
-   NOTE: this media query MUST stay at the bottom of the file so
-   `touch-action: pan-y` wins over the desktop `touch-action: none`
-   by source order. No !important needed.
+  .cluster-wrap {
+    min-height: 620px;
+  }
+}
+
+/* ============================================================
+   MOBILE
    ============================================================ */
 @media (max-width: 809.98px) {
   .cluster-wrap {

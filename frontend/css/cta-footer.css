@@ -21,6 +21,7 @@
 .cta-signup__content h2 {
   margin: 8px 0 20px;
   max-width: 420px;
+  text-transform: uppercase;
 }
 
 .cta-signup__content > p {
@@ -106,6 +107,8 @@
 .footer {
   padding: 80px 0 40px;
   border-top: 1px solid var(--border-light);
+  position: relative;
+  overflow: hidden;
 }
 
 .footer__top {
@@ -115,7 +118,6 @@
   margin-bottom: 64px;
 }
 
-/* -------- Brand col -------- */
 .footer__brand {
   display: flex;
   flex-direction: column;
@@ -145,7 +147,6 @@
   align-self: flex-start;
 }
 
-/* -------- Link columns -------- */
 .footer__col h6 {
   font-family: var(--font-sans);
   font-size: 15px;
@@ -175,13 +176,32 @@
   text-decoration: underline;
 }
 
-/* -------- Bottom bar -------- */
+/* ============================================================
+   FOOTER WATERMARK — large faded "TAWA" behind footer
+   ============================================================ */
+.footer__watermark {
+  font-family: var(--font-serif);
+  font-size: clamp(80px, 15vw, 220px);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  color: var(--green-primary);
+  opacity: 0.08;
+  line-height: 0.85;
+  text-align: center;
+  text-transform: uppercase;
+  margin-bottom: -20px;
+  pointer-events: none;
+  user-select: none;
+}
+
 .footer__bottom {
   border-top: 1px solid var(--border-light);
   padding-top: 28px;
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
+  z-index: 1;
 }
 
 .footer__bottom p {

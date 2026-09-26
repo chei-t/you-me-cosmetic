@@ -1,7 +1,9 @@
 /* ============================================================
    SERVICES — staggered card reveal
-   Cards slide in from alternating sides as they enter viewport.
-   Layout: 2-column grid, middle card centered.
+   Row 1: [Glow Facial]        [Skin Analysis]
+   Row 2:        [Hydra Therapy]
+   Row 3: [Radiance Peel]      [Barrier Repair]
+   Each card slides in from its direction as it enters viewport.
    ============================================================ */
 .services {
   padding: var(--section-pad) 0;
@@ -38,16 +40,13 @@
 }
 
 /* ============================================================
-   GRID
-   Row 1: [Card 1]        [Card 2]
-   Row 2:        [Card 3]
-   Row 3: [Card 4]        [Card 5]
+   GRID — 2 columns, card 3 spans both
    ============================================================ */
 .services__grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 32px;
-  max-width: 900px;
+  gap: 20px;
+  max-width: 800px;
   margin: 0 auto;
 }
 
@@ -79,9 +78,9 @@
 
 .service-card__image {
   width: 100%;
-  aspect-ratio: 3 / 4;
+  aspect-ratio: 380 / 300;
   overflow: hidden;
-  background: var(--pale-green);
+  background: var(--green-light);
 }
 
 .service-card__image img {
@@ -98,26 +97,26 @@
 }
 
 .service-card__body {
-  padding: 20px;
+  padding: 24px;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 6px;
 }
 
 .service-card__body h5 {
   font-family: var(--font-serif);
-  font-size: 20px;
+  font-size: 30px;
   font-weight: 400;
   color: var(--green-primary);
   line-height: 1.2;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.04em;
   text-transform: uppercase;
   margin: 0;
 }
 
 .service-card__body p {
   font-family: var(--font-sans);
-  font-size: 13px;
+  font-size: 14px;
   line-height: 1.5;
   color: var(--green-primary);
   opacity: 0.7;
@@ -126,7 +125,6 @@
 
 /* ============================================================
    REVEAL STATES
-   JS adds `.is-revealed` when the card enters viewport.
    ============================================================ */
 .service-card[data-reveal] {
   opacity: 0;
@@ -154,12 +152,16 @@
    ============================================================ */
 @media (max-width: 1199.98px) and (min-width: 810px) {
   .services__grid {
-    gap: 24px;
-    max-width: 800px;
+    gap: 20px;
+    max-width: 720px;
   }
 
   .services__head h2 {
     font-size: clamp(28px, 4vw, 44px);
+  }
+
+  .service-card__body h5 {
+    font-size: 24px;
   }
 }
 
@@ -183,19 +185,19 @@
   }
 
   .service-card__image {
-    aspect-ratio: 4 / 5;
+    aspect-ratio: 4 / 3;
   }
 
   .service-card__body {
-    padding: 16px;
+    padding: 20px;
   }
 
   .service-card__body h5 {
-    font-size: 17px;
+    font-size: 22px;
   }
 
   .service-card__body p {
-    font-size: 12px;
+    font-size: 13px;
   }
 
   .service-card[data-reveal="left"]  { transform: translateX(-40px); }

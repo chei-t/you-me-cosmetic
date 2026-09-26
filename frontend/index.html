@@ -6,6 +6,13 @@
     <title>Tawa Cosmetics — The Quiet Luxury Of Perfect Skin</title>
     <meta name="description" content="Tawa Cosmetics — clean skincare that transforms your skin into its most quietly radiant self." />
 
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Tawa Cosmetics — The Quiet Luxury Of Perfect Skin" />
+    <meta property="og:description" content="Clean, botanical skincare made in Kenya." />
+    <meta property="og:url" content="https://tawacosmetics.com" />
+    <meta name="twitter:card" content="summary_large_image" />
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
@@ -34,7 +41,13 @@
     <nav class="navbar">
       <div class="container navbar__inner">
         <a href="./" class="navbar__logo" aria-label="Tawa Cosmetics home">
-          <span class="navbar__logo-mark"></span>
+          <svg class="navbar__logo-mark" viewBox="0 0 32 32" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M16 16 C16 12, 12 10, 10 12 C8 14, 10 18, 14 18"/>
+            <path d="M16 16 C20 16, 22 12, 20 10 C18 8, 14 10, 14 14"/>
+            <path d="M16 16 C16 20, 20 22, 22 20 C24 18, 22 14, 18 14"/>
+            <path d="M16 16 C12 16, 10 20, 12 22 C14 24, 18 22, 18 18"/>
+            <circle cx="16" cy="16" r="1.5" fill="currentColor" stroke="none"/>
+          </svg>
           <span class="navbar__logo-text">Tawa</span>
         </a>
         <ul class="navbar__menu" id="primary-navigation">
@@ -64,7 +77,6 @@
     <header class="hero">
       <div class="container">
         <div class="hero__card">
-
           <div class="hero__content">
             <div class="hero__tag">
               <p>— Your Glow Starts Here</p>
@@ -98,11 +110,7 @@
                 </svg>
                 <span>Best Seller</span>
               </span>
-              <img
-                src="https://framerusercontent.com/images/Krb5dkxFHqS8N0Fe2wYr6crVYpg.png?width=1024&height=1024"
-                alt="Glow Revival Serum"
-                loading="eager"
-              />
+              <img src="https://framerusercontent.com/images/Krb5dkxFHqS8N0Fe2wYr6crVYpg.png?width=1024&height=1024" alt="Glow Revival Serum" loading="eager" />
             </div>
             <div class="hero__product-info">
               <div>
@@ -117,13 +125,8 @@
           </a>
 
           <div class="hero__image">
-            <img
-              src="https://framerusercontent.com/images/DR5l0DriK2khnOF60po5bnXc.png?width=1437&height=1024"
-              alt=""
-              loading="eager"
-            />
+            <img src="https://framerusercontent.com/images/DR5l0DriK2khnOF60po5bnXc.png?width=1437&height=1024" alt="" loading="eager" />
           </div>
-
         </div>
       </div>
     </header>
@@ -178,9 +181,9 @@
     <!-- NEW ARRIVALS -->
     <section class="new-arrivals" id="new-arrivals">
       <div class="container">
-        <div class="section-head section-head--left">
+        <div class="section-head" data-reveal>
           <div class="section-tag"><p>— New Arrivals</p></div>
-          <h2>Newest Additions To Your Glow Ritual</h2>
+          <h2>Newest Additions<br>To Your Glow Ritual</h2>
         </div>
 
         <div class="product-grid">
@@ -274,7 +277,6 @@
     <!-- SERVICES — staggered card reveal -->
     <section class="services" id="services">
       <div class="container">
-
         <div class="services__head">
           <div class="section-tag"><p>— Services</p></div>
           <h2>Your Skin Deserves<br>More Than Basic Care</h2>
@@ -283,7 +285,6 @@
         </div>
 
         <div class="services__grid">
-
           <article class="service-card" data-reveal="left">
             <div class="service-card__image">
               <img src="https://framerusercontent.com/images/jce1lX2GDa5PuE8w9wr9yUmwON4.jpeg?width=686&height=1200" alt="Glow Facial" loading="lazy" />
@@ -316,16 +317,6 @@
 
           <article class="service-card" data-reveal="left">
             <div class="service-card__image">
-              <img src="https://framerusercontent.com/images/eE15gIALdLJQetC2gEcONkp5w4.jpeg?width=800&height=1200" alt="Barrier Repair" loading="lazy" />
-            </div>
-            <div class="service-card__body">
-              <h5>Barrier Repair</h5>
-              <p>Rebuilds and restores your skin barrier back to health.</p>
-            </div>
-          </article>
-
-          <article class="service-card" data-reveal="right">
-            <div class="service-card__image">
               <img src="https://framerusercontent.com/images/vvsRA8lAQQGWgAC6KPwAysFrbVs.jpeg?width=686&height=1200" alt="Radiance Peel" loading="lazy" />
             </div>
             <div class="service-card__body">
@@ -334,8 +325,16 @@
             </div>
           </article>
 
+          <article class="service-card" data-reveal="right">
+            <div class="service-card__image">
+              <img src="https://framerusercontent.com/images/eE15gIALdLJQetC2gEcONkp5w4.jpeg?width=800&height=1200" alt="Barrier Repair" loading="lazy" />
+            </div>
+            <div class="service-card__body">
+              <h5>Barrier Repair</h5>
+              <p>Rebuilds and restores your skin barrier back to health.</p>
+            </div>
+          </article>
         </div>
-
       </div>
     </section>
 
@@ -350,12 +349,7 @@
           playsinline
           preload="metadata"
         ></video>
-        <button
-          class="main-video__play"
-          type="button"
-          aria-label="Play video"
-          aria-pressed="false"
-        >
+        <button class="main-video__play" type="button" aria-label="Play video" aria-pressed="false">
           <svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true">
             <path d="M8 5v14l11-7z" fill="currentColor" />
           </svg>
@@ -366,27 +360,27 @@
     <!-- ABOUT -->
     <section class="about" id="about">
       <div class="container about__grid">
-        <div class="about__text">
+        <div class="about__text" data-reveal>
           <div class="section-tag"><p>— About us</p></div>
           <h2>A Brand With One Mission Glowing Skin</h2>
           <p>Our entire brand exists for one reason helping every person achieve healthy, radiant, glowing skin through clean ingredients, honest formulas, and skincare that genuinely delivers real results.</p>
           <div class="about__stats">
             <div class="stat-card">
-              <div class="stat-card__num"><span data-count="35">35</span><span>K+</span></div>
+              <div class="stat-card__num"><span data-count="50">50</span><span>K+</span></div>
               <p>Happy Customers</p>
             </div>
             <div class="stat-card">
-              <div class="stat-card__num"><span data-count="180">180</span><span>+</span></div>
+              <div class="stat-card__num"><span data-count="200">200</span><span>+</span></div>
               <p>Premium Products</p>
             </div>
           </div>
         </div>
-        <div class="about__image">
+        <div class="about__image" data-reveal>
           <img src="https://framerusercontent.com/images/PzDd6qBpHB6uj2UPyzVLpe9Ldo.png?width=1254&height=1254" alt="" loading="lazy" />
         </div>
       </div>
       <div class="container">
-        <div class="about__features">
+        <div class="about__features" data-reveal>
           <div class="feature-card"><span class="feature-card__icon"></span><h6>Purity</h6><p>Clean natural ingredients free from anything harmful always.</p></div>
           <div class="feature-card"><span class="feature-card__icon"></span><h6>Honesty</h6><p>Every ingredient on our label exists with full purpose.</p></div>
           <div class="feature-card"><span class="feature-card__icon"></span><h6>Gentleness</h6><p>Made for every skin type even sensitive.</p></div>
@@ -398,9 +392,9 @@
     <!-- BEST SELLERS -->
     <section class="best-sellers">
       <div class="container">
-        <div class="section-head section-head--left">
+        <div class="section-head" data-reveal>
           <div class="section-tag"><p>— Best sellers</p></div>
-          <h2>Most Loved Most Repurchased Ever</h2>
+          <h2>Most Loved<br>Most Repurchased Ever</h2>
         </div>
 
         <div class="carousel">
@@ -446,10 +440,10 @@
     <!-- TESTIMONIAL -->
     <section class="testimonial">
       <div class="container testimonial__grid">
-        <div class="testimonial__image">
+        <div class="testimonial__image" data-reveal>
           <img src="https://framerusercontent.com/images/hSQRElmodqkYmuJMnHYkby428A.png?width=1254&height=1254" alt="" loading="lazy" />
         </div>
-        <div class="testimonial__content">
+        <div class="testimonial__content" data-reveal>
           <div class="testimonial__stars">
             <svg viewBox="0 0 24 24" width="20" height="20"><use href="#icon-star" /></svg>
             <svg viewBox="0 0 24 24" width="20" height="20"><use href="#icon-star" /></svg>
@@ -469,7 +463,7 @@
     <!-- BLOGS -->
     <section class="blogs" id="blogs">
       <div class="container">
-        <div class="section-head">
+        <div class="section-head" data-reveal>
           <div class="section-tag"><p>— Blogs</p></div>
           <h2>Skin Stories Worth Your Precious Time</h2>
         </div>
@@ -517,7 +511,7 @@
     <!-- CTA SIGNUP -->
     <section class="cta-signup">
       <div class="container cta-signup__grid">
-        <div class="cta-signup__content">
+        <div class="cta-signup__content" data-reveal>
           <div class="section-tag"><p>— Get started</p></div>
           <h2>Your Glow Journey Starts Right Now</h2>
           <p>Stop waiting for perfect skin. Everything you need is already here waiting for you.</p>
@@ -526,7 +520,7 @@
             <button type="submit">Subscribe</button>
           </form>
         </div>
-        <div class="cta-signup__image">
+        <div class="cta-signup__image" data-reveal>
           <img src="https://framerusercontent.com/images/Aq90auBsaL9g2dAECkQA52LNxM.png?width=1007&height=1536" alt="" loading="lazy" />
         </div>
       </div>
@@ -572,6 +566,9 @@
             </ul>
           </div>
         </div>
+
+        <div class="footer__watermark">Tawa</div>
+
         <div class="footer__bottom">
           <p>© 2024 Tawa Cosmetics. All rights reserved.</p>
         </div>
