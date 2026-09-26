@@ -1,15 +1,30 @@
 /* ============================================================
-   SERVICES
-   Layout: heading + CTA on top, then 5-card grid below
+   SERVICES — sticky heading + horizontal card scroll
+   Matches Framer's mechanic.
    ============================================================ */
 .services {
-  padding: var(--section-pad) 0;
+  position: relative;
+  padding: 0;
+  overflow: visible;
+}
+
+/* -------- Sticky heading -------- */
+.services__sticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+  pointer-events: none;
 }
 
 .services__head {
   text-align: center;
   max-width: 640px;
-  margin: 0 auto 56px;
+  margin: 0 auto;
+  pointer-events: auto;
 }
 
 .services__head h2 {
@@ -25,34 +40,47 @@
   margin-bottom: 32px;
 }
 
-/* -------- Grid -------- */
-.services__grid {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 20px;
+/* -------- Scroll container -------- */
+.services__scroll {
+  position: relative;
+  margin-top: -100vh;
+  height: 200vh;
+  display: flex;
+  align-items: center;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.services__track {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding-left: calc((100vw - 1200px) / 2 + 24px);
+  padding-right: 24px;
+  will-change: transform;
+  pointer-events: auto;
 }
 
 /* -------- Card -------- */
 .service-card {
+  flex: 0 0 auto;
+  width: 380px;
   background: var(--pale-green);
   border-radius: 16px;
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  transition: transform var(--t-med) var(--ease-out),
-              box-shadow var(--t-med) var(--ease-out);
-  opacity: 1;
+  box-shadow: 0 20px 60px rgba(74, 91, 53, 0.12);
+  transition: transform var(--t-med) var(--ease-out);
 }
 
 .service-card:hover {
   transform: translateY(-4px);
-  box-shadow: var(--shadow-hover);
-  opacity: 1;
 }
 
 .service-card__image {
   width: 100%;
-  aspect-ratio: 3 / 5;
+  aspect-ratio: 3 / 4.2;
   overflow: hidden;
   background: var(--green-light);
 }
@@ -70,7 +98,7 @@
 }
 
 .service-card__body {
-  padding: 20px;
+  padding: 24px;
   display: flex;
   flex-direction: column;
   gap: 8px;
@@ -78,16 +106,78 @@
 
 .service-card__body h5 {
   font-family: var(--font-serif);
-  font-size: 20px;
+  font-size: 24px;
   font-weight: 400;
   color: var(--green-primary);
   line-height: 1.2;
+  letter-spacing: -0.02em;
 }
 
 .service-card__body p {
   font-family: var(--font-sans);
-  font-size: 13px;
+  font-size: 14px;
   line-height: 1.5;
   color: var(--green-primary);
   opacity: 0.7;
+}
+
+/* ============================================================
+   MOBILE
+   ============================================================ */
+@media (max-width: 809.98px) {
+  .services {
+    padding: var(--section-pad) 0;
+  }
+
+  .services__sticky {
+    position: static;
+    height: auto;
+    padding: 0;
+    display: block;
+    pointer-events: auto;
+  }
+
+  .services__head {
+    margin-bottom: 40px;
+    padding: 0 var(--gutter);
+  }
+
+  .services__scroll {
+    margin-top: 0;
+    height: auto;
+    display: block;
+    pointer-events: auto;
+  }
+
+  .services__track {
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    padding: 0 var(--gutter) 8px;
+    gap: 16px;
+  }
+
+  .services__track::-webkit-scrollbar {
+    display: none;
+  }
+
+  .service-card {
+    width: 280px;
+    scroll-snap-align: start;
+    box-shadow: none;
+  }
+
+  .service-card__image {
+    aspect-ratio: 4 / 5;
+  }
+
+  .service-card__body {
+    padding: 20px;
+  }
+
+  .service-card__body h5 {
+    font-size: 20px;
+  }
 }

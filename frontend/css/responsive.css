@@ -31,8 +31,7 @@
   .product-grid { grid-template-columns: repeat(2, 1fr); }
   .carousel__item { width: calc((100% - 18px) / 2); }
 
-  /* Services */
-  .services__grid { grid-template-columns: repeat(3, 1fr); }
+  /* Services — handled in services.css (horizontal scroll) */
 
   /* About */
   .about__grid { gap: 48px; }
@@ -81,7 +80,7 @@
 
   .navbar__menu {
     position: fixed;
-    top: 68px;
+    top: var(--nav-height-mobile);
     left: 0;
     right: 0;
     background: var(--cream);
@@ -160,20 +159,8 @@
   .carousel__item { width: calc((100% - 18px) / 2); }
   .carousel__controls { margin-top: 20px; }
 
-  /* -------- Services -------- */
+  /* -------- Services — handled in services.css (native swipe) -------- */
   .services__head { margin-bottom: 40px; }
-  .services__grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 14px;
-  }
-  .services__grid .service-card:last-child {
-    grid-column: 1 / -1;
-    max-width: 50%;
-    margin: 0 auto;
-  }
-  .service-card__image { aspect-ratio: 4 / 5; }
-  .service-card__body { padding: 16px; }
-  .service-card__body h5 { font-size: 18px; }
 
   /* -------- About -------- */
   .about__grid {
