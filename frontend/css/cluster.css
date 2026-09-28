@@ -52,7 +52,7 @@
   isolation: isolate;
 }
 
-/* -------- Card (outer) -------- */
+/* -------- Card (outer) — CSS owns composition -------- */
 .cluster-card {
   position: absolute;
   top: 50%;
@@ -62,12 +62,10 @@
   z-index: var(--z, 1);
   pointer-events: none;
   transform:
-    translate(-50%, -50%)
-    translate(var(--x, 0), var(--y, 0))
-    scale(var(--s, 1));
+    translate(-50%, -50%) translate(var(--x, 0), var(--y, 0)) scale(var(--s, 1));
 }
 
-/* -------- Card (inner) -------- */
+/* -------- Card (inner) — GSAP owns motion -------- */
 .cluster-card__inner {
   width: 100%;
   height: 100%;
@@ -90,39 +88,17 @@
 }
 
 /* ============================================================
-   DESKTOP SCALE — larger cluster (matches Framer)
+   DESKTOP SCALE — make the cluster larger (matches Framer)
    ============================================================ */
 @media (min-width: 810px) {
   .cluster-stage {
     transform: scale(1.35);
     transform-origin: center;
-    transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
   }
 
   .cluster-wrap {
-    min-height: 660px;
+    min-height: 620px;
   }
-}
-
-/* ============================================================
-   HOVER TILT — cluster reacts to mouse
-   ============================================================ */
-@media (min-width: 810px) {
-  .cluster-wrap:hover .cluster-stage {
-    transform: scale(1.35) rotate(2deg);
-  }
-}
-
-/* ============================================================
-   DRAG FEEDBACK — deeper shadows while dragging
-   ============================================================ */
-.cluster-wrap.is-dragging .cluster-card__inner img {
-  box-shadow: 0 24px 64px rgba(74, 91, 53, 0.28);
-  transition: box-shadow 0.3s ease;
-}
-
-.cluster-wrap:not(.is-dragging) .cluster-card__inner img {
-  transition: box-shadow 0.8s ease;
 }
 
 /* ============================================================
@@ -138,4 +114,29 @@
     transform: scale(0.42);
     transform-origin: center;
   }
+}
+
+/* ============================================================
+   HOVER TILT — cluster reacts to mouse
+   ============================================================ */
+@media (min-width: 810px) {
+  .cluster-stage {
+    transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .cluster-wrap:hover .cluster-stage {
+    transform: scale(1.35) rotate(2deg);
+  }
+}
+
+/* ============================================================
+   DRAG FEEDBACK — deeper shadows while dragging
+   ============================================================ */
+.cluster-wrap.is-dragging .cluster-card__inner img {
+  box-shadow: 0 24px 64px rgba(74, 91, 53, 0.28);
+  transition: box-shadow 0.3s ease;
+}
+
+.cluster-wrap:not(.is-dragging) .cluster-card__inner img {
+  transition: box-shadow 0.8s ease;
 }
