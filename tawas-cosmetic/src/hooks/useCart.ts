@@ -1,8 +1,8 @@
 // src/hooks/useCart.ts
-'use client';
-import { useState, useEffect, useCallback } from 'react';
+"use client";
+import { useState, useEffect, useCallback } from "react";
 
-const STORAGE_KEY = 'tawas_cart_v1';
+const STORAGE_KEY = "tawas_cart_v1";
 
 export type CartItem = {
   variantId: string;
@@ -36,7 +36,10 @@ export function useCart() {
         const items: CartItem[] = JSON.parse(raw);
         setState({
           items,
-          subtotalKes: items.reduce((sum, i) => sum + i.unitPriceKes * i.quantity, 0),
+          subtotalKes: items.reduce(
+            (sum, i) => sum + i.unitPriceKes * i.quantity,
+            0,
+          ),
           isHydrated: true,
         });
       } else {
@@ -53,32 +56,43 @@ export function useCart() {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(state.items));
   }, [state.items, state.isHydrated]);
 
-  const addItem = useCallback((item: Omit<CartItem, 'quantity'>, qty: number = 1) => {
-    setState((s) => {
-      const existing = s.items.find((i) => i.variantId === item.variantId);
-      const items = existing
-        ? s.items.map((i) =>
-            i.variantId === item.variantId ? { ...i, quantity: i.quantity + qty } : i
-          )
-        : [...s.items, { ...item, quantity: qty }];
-      return {
-        ...s,
-        items,
-        subtotalKes: items.reduce((sum, i) => sum + i.unitPriceKes * i.quantity, 0),
-      };
-    });
-  }, []);
+  const addItem = useCallback(
+    (item: Omit<CartItem, "quantity">, qty: number = 1) => {
+      setState((s) => {
+        const existing = s.items.find((i) => i.variantId === item.variantId);
+        const items = existing
+          ? s.items.map((i) =>
+              i.variantId === item.variantId
+                ? { ...i, quantity: i.quantity + qty }
+                : i,
+            )
+          : [...s.items, { ...item, quantity: qty }];
+        return {
+          ...s,
+          items,
+          subtotalKes: items.reduce(
+            (sum, i) => sum + i.unitPriceKes * i.quantity,
+            0,
+          ),
+        };
+      });
+    },
+    [],
+  );
 
   const updateQty = useCallback((variantId: string, qty: number) => {
     if (qty < 1) return;
     setState((s) => {
       const items = s.items.map((i) =>
-        i.variantId === variantId ? { ...i, quantity: qty } : i
+        i.variantId === variantId ? { ...i, quantity: qty } : i,
       );
       return {
         ...s,
         items,
-        subtotalKes: items.reduce((sum, i) => sum + i.unitPriceKes * i.quantity, 0),
+        subtotalKes: items.reduce(
+          (sum, i) => sum + i.unitPriceKes * i.quantity,
+          0,
+        ),
       };
     });
   }, []);
@@ -89,7 +103,10 @@ export function useCart() {
       return {
         ...s,
         items,
-        subtotalKes: items.reduce((sum, i) => sum + i.unitPriceKes * i.quantity, 0),
+        subtotalKes: items.reduce(
+          (sum, i) => sum + i.unitPriceKes * i.quantity,
+          0,
+        ),
       };
     });
   }, []);
